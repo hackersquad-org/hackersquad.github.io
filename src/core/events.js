@@ -32,10 +32,10 @@
 //  musou:end     musou    {}
 //  crowd:wave    crowd    {x,z}                                         reinforcements spawned
 //  crowd:allies  crowd    {x,z}                                         a Shu column spawned (runs up the road behind the hero)
-//  story:say     story    {speaker, zh, en, dur, portrait, side}        dialogue line (HUD, top left). speaker: {zh, en} name
-//                                                                       (omitted = the hero); portrait: CHARS id | {seal: glyph}
-//                                                                       (omitted = the hero's); side 'shu' (default) | 'wei';
-//                                                                       dur: sim frames
+//  story:say     story    {who, speaker, text, dur, portrait, side}    dialogue line (HUD, top left; its voice clip: audio/lines.js).
+//                                                                       who: the speaker's id (a CHARS id or the stage's SPK key);
+//                                                                       speaker: the name shown; portrait: CHARS id | {seal: tag};
+//                                                                       side 'us' | 'them'; dur: sim frames the text holds
 //  story:banner  story    {html, en, dur, big?}                         system banner (HUD band; html may use <em>; big: slain/boss)
 //  story:objective story  {zh, en}                                      current objective (HUD, top left; empty zh clears it)
 //  story:end     story    {win, stats}                                  battle over → flow goes to the result screen.

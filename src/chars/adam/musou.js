@@ -1,4 +1,4 @@
-// Edward's Overclock SONIC BOOM (sim; interface of src/musou/musou.js). Timeline (Overclock frames t, 210 = control
+// Adam's Overclock SONIC BOOM (sim; interface of src/musou/musou.js). Timeline (Overclock frames t, 210 = control
 // returns; hitstop pauses it):
 //   0   activation: the world holds still, he raises the mic (cut-in, 24 f)
 //   30 / 60 / 90  three screams, each ring wider (circle 3.2 → 4.4 → 5.6 m, spin reaction)

@@ -1,4 +1,4 @@
-// Voxel Bill on the shared rig: a broad man in a navy baseball cap and a blue T-shirt, cargo trousers and work boots, a
+// Voxel Brian on the shared rig: a broad man in a navy baseball cap and a blue T-shirt, cargo trousers and work boots, a
 // day's stubble. Weapons (dual-wield rig): right = a warehouse cart (weapon joint: origin = the middle of its handle, the
 // basket rolls ahead of it on four wheels 1 m under the handle; loaded with an old monitor and a server box), left = his
 // camera (weaponL: body, lens along +Z, a flash unit on top).

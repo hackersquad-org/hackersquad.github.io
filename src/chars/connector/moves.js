@@ -1,6 +1,6 @@
 // Connector — the jelly's moveset (data only; format: src/hero/moves.js header; `hand`: R / L = which of its two orange
 // ball hands strikes — the trail follows it). It fights with its whole body: jabs with the floating hands, belly bumps,
-// the spin, the hops — and it copies what it has seen: C1 is Edward's scream, C4 Bill's camera flash, C6 splits it into
+// the spin, the hops — and it copies what it has seen: C1 is Adam's scream, C4 Brian's camera flash, C6 splits it into
 // its three clones. All timings in 60 Hz sim frames.
 // N-string hit onsets 18–22 sf apart: n1 8 → n2 26 → n3 46 → n4 66 → n5 85 → n6 (hop slam) 122.
 // Charges: C1 Copy: Scream (a sound cone, 5 m) · C2 Uppercut (launcher) · C3 Spin Attack (a spinning top through the
@@ -28,7 +28,7 @@ export const MOVES = {
   n6: { frames: 50, next: 'n1', charge: 'c1', cancel: 40, dodgeCancel: 28, steer: 6, lunge: [[4, 22, 1.0]], armor: true, leap: [6, 5.6], landFrame: 24,
     hits: [{ f: [24, 27], every: ONCE, shape: 'circle', range: 2.9, dmg: 24, kb: 'blow', force: 12, lift: 6, hitstop: 7, heavy: true }] },
 
-  // C1 Copy: Scream — it opens its mouth as wide as it goes and screams Edward's scream
+  // C1 Copy: Scream — it opens its mouth as wide as it goes and screams Adam's scream
   c1: { frames: 60, cancel: 52, dodgeCancel: 46, steer: 14, armor: true,
     hits: [{ f: [18, 38], every: 6, shape: 'arc', range: 5, ang: 70, dmg: 6, kb: 'flinch', force: 2, hitstop: 1 },
       { f: [42, 45], every: ONCE, shape: 'arc', range: 5.5, ang: 80, dmg: 20, kb: 'blow', force: 12, lift: 4, hitstop: 6, heavy: true }] },
@@ -39,7 +39,7 @@ export const MOVES = {
   c3: { frames: 72, cancel: 64, dodgeCancel: 60, steer: 12, lunge: [[8, 52, 3.0]], armor: true, hand: [[0, 'R'], [20, 'L'], [32, 'R'], [44, 'L']],
     hits: [{ f: [10, 52], every: 7, shape: 'circle', range: 2.5, dmg: 7, kb: 'spin', force: 3, lift: 1, hitstop: 1 },
       { f: [56, 59], every: ONCE, shape: 'circle', range: 3.2, dmg: 20, kb: 'blow', force: 12, lift: 5, hitstop: 6, heavy: true }] },
-  // C4 (N3 → C) Copy: Flash — its eyes flash like Bill's camera, the last one overexposed
+  // C4 (N3 → C) Copy: Flash — its eyes flash like Brian's camera, the last one overexposed
   c4: { frames: 58, cancel: 50, dodgeCancel: 42, steer: 14, armor: true,
     hits: [{ f: [14, 34], every: 10, shape: 'arc', range: 5, ang: 90, dmg: 6, kb: 'flinch', force: 2, hitstop: 1 },
       { f: [38, 40], every: ONCE, shape: 'arc', range: 5.5, ang: 100, dmg: 18, kb: 'blow', force: 12, lift: 4, hitstop: 5, heavy: true }] },

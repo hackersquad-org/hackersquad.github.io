@@ -5,6 +5,11 @@
 //    on the field holds them up) and duck under hits and the Overclock. The result screen opens on the score's jingle.
 //  · the stage's air (the score's ambience bed), its enemies' voices (voices.js: people in the warehouse, wolves and
 //    foxes in the forest) and the floor under the fighter's feet (concrete / grass).
+//  · the dialogue (lines.js): every story line — the MC and the Elder's briefings, the bosses' taunts, the hero's intro
+//    and his shout after the Overclock, the ally's cheers, the result screen's epilogue — spoken by a real voice, from
+//    clips made with the ElevenLabs API and stored under assets/voice/ (tools/voices.mjs). The only sounds fetched
+//    rather than synthesised; without them the lines are text only. A line plays on its own bus over the mix, with
+//    the score and the effects dipped under it while it runs.
 //  · swings: an air whoosh by move shape / weight, cued LEAD sim frames before each hitbox window opens (sound leads
 //    the trail), with the weapon's own layer on it and the fighter's voice (kids shout; the sheep bleats, the pig oinks,
 //    the cat mews, the jelly blubs).
@@ -26,6 +31,8 @@ import { on } from '../core/events.js';
 import { buildBank, makeIR, noiseBuf } from './bank.js';
 import { buildFoley } from './foley.js';
 import { bakeVoice, bakeCast } from './voices.js';
+import { createLines } from './lines.js';
+import { CHARS, shoutOf } from '../chars/index.js';
 import { bakeScore, scoreOf } from './music.js';
 import { KITS, SOFT } from './kits.js';
 import { handAt } from '../hero/moveset.js';
@@ -43,6 +50,8 @@ const kindOf = (w) => (w.heavy ? 'heavy' : w.shape === 'circle' ? 'spin' : w.sha
 // a normal swing is voiced with probability VOICE_P; charge finishers, heavy blows and N6 always are (a long call)
 const VOICE_P = 0.5;
 const VOX = 0.72;                 // voice bus: ≈ 6 dB under the sfx stem, so calls and shouts never mask the impacts
+const DLG = 1.3;                  // dialogue bus: the spoken lines sit on top of the mix (≈ +2 dB over unity, no sidechain)
+const TALK = [0.3, 0.5];          // under a spoken line: the score + bed, and the effects + shouts, dip to these
 const MIX = 0.6, POST = 0.9;     // master level (≈ -17 LUFS in the crowd-fight scenario), post-compressor gain
 const BOSS = 0.55;                // a boss on the field: the score never drops below this intensity
 // sidechain under every hit tick (hits own the transient): [whoosh, music + bed, voice, reverb return] depth, hold 50 ms + 10 ms
@@ -51,7 +60,8 @@ const SIDE = [0.3, 0.65, 0.45, 0.5], SIDE_MU = [0.25, 0.5, 0.55, 0.4];
 
 export function createAudio(game) {
   let ctx = null, mix, post, ceiling, sfx, vox, bedBus, bedDuck, revIn, live = 0;
-  let underBus, sides = [];                   // sfx that yield to impacts (whooshes, body falls) + the sidechain gains
+  let underBus, sides = [], dlg, talk;        // sfx that yield to impacts (whooshes, body falls) + the sidechain gains;
+                                              // dlg: the dialogue's own bus; talk: effects + shouts, dipped under a line
                                               // (under bus, bed, voice, reverb return)
   let muFrame = -1;                           // last sim frame that voiced a Musou tick (several strikes share a frame)
   let mu = null;                              // current Musou timing (musou:start payload, frames)
@@ -89,10 +99,12 @@ export function createAudio(game) {
     });
     ceiling = clip;                            // input after the compressor: the Musou riser rides through the inhale here
     eq.reduce((n, b) => n.connect(b), mix).connect(comp).connect(post).connect(clip).connect(ctx.destination);
-    sfx = ctx.createGain(); sfx.connect(mix);
+    talk = ctx.createGain(); talk.connect(mix);                     // effects and shouts pass through here: dipped while a line is spoken
+    sfx = ctx.createGain(); sfx.connect(talk);
     sides = SIDE.map(() => ctx.createGain());
     underBus = ctx.createGain(); underBus.connect(sides[0]).connect(sfx);
-    vox = ctx.createGain(); vox.gain.value = VOX; vox.connect(sides[2]).connect(mix);
+    vox = ctx.createGain(); vox.gain.value = VOX; vox.connect(sides[2]).connect(talk);
+    dlg = ctx.createGain(); dlg.gain.value = DLG; dlg.connect(mix);   // the spoken lines: straight to the mix, no sidechain under hits
     const rev = ctx.createConvolver(); try { rev.buffer = makeIR(); } catch { /* rate mismatch: a dry mix */ }
     revIn = ctx.createGain(); revIn.connect(rev); rev.connect(sides[3]).connect(mix);   // the wash ducks under hits too
     bedDuck = ctx.createGain(); bedDuck.connect(mix);
@@ -134,6 +146,21 @@ export function createAudio(game) {
     if (t - (last.get(key) || -1e9) < ms) return false;
     last.set(key, t); return true;
   }
+  // ---- the dialogue's voices (lines.js): centred, on the voice bus, never dropped by the live-source cap
+  const L = createLines({ ctx: () => (ok() ? ctx : null), play: (buf) => play(buf, { gain: 1, send: 0.08, bus: dlg, prio: 1 }) });
+  /** A story line in its speaker's voice, on its own bus over the mix; the score and the effects dip under it for as long
+   *  as the clip runs (not inside an Overclock: its own ducking runs the mix then). */
+  function speak(who, text) {
+    if (!ok() || !who) return null;
+    const r = L.speak(who, text);
+    if (r && r.sec && !game.musou.active) {
+      duck(TALK[0], r.sec, 0.4);
+      ramp(talk.gain, [[0.03, TALK[1]]]); talk.gain.setTargetAtTime(1, ctx.currentTime + 0.03 + r.sec, 0.25);
+    }
+    return r;
+  }
+  on('story:say', (e) => speak(e.who, e.text));
+  on('musou:end', () => { if (game.mine()) speak(game.hero.char.id, shoutOf(game.hero.char, game.chapter)); });
   /** Pan + distance gain of a world point, heard from the hero with the sim camera's orientation. */
   function place(x, z) {
     const h = game.view.hero, yw = game.view.cam.yaw, dx = x - h.x, dz = z - h.z;   // the local player's ears (co-op: an event may come from the partner's step)
@@ -175,14 +202,30 @@ export function createAudio(game) {
   }
   on('flow', ({ state, ctx: c }) => {
     flowState = state;
+    if (state !== 'battle') L.stop();
     if (state === 'title' || state === 'lobby') return setScore('title');
     setScore(scoreOf(resolveChapter(c.chapter, c.char).map));
     if (state === 'result') bakeScore(wantScore).then((S) => {   // (baked long ago: the battle played it) its jingle, the tune held under it
       if (!ok() || flowState !== 'result') return;
       play(c.win ? S.win : S.lose, { gain: 0.8, delay: 0.45, send: 0.25, prio: 1 });
       duck(0.3, 2.6, 0.7);
+      narrate(c);
     }, warn);
   });
+  /** The result screen's closing lines (story/result.js shows them), read by the narrator once the jingle has landed:
+   *  the fighter's epilogue on a win, the stage's defeat line otherwise. */
+  async function narrate(c) {
+    const ch = CHARS[c.char] || CHARS[game.hero.char.id], CH = resolveChapter(c.chapter, ch.id), E = CH.EPILOGUE || {};
+    const lines = c.win ? E[ch.id] || Object.values(E)[0] || [] : [(CH.DEFEAT || '{name} is knocked out.').replace('{name}', ch.name)];
+    await new Promise((f) => setTimeout(f, 1800));
+    for (const t of lines) {
+      if (flowState !== 'result') return;
+      const r = speak('narrator', t);
+      if (!r) return;
+      await r.done;
+      await new Promise((f) => setTimeout(f, 350));
+    }
+  }
   // the stage scores bake behind the title, one after the other, so picking a mission never waits for its music
   bakeScore('title').then(() => bakeCast('warehouse')).then((c) => bakeScore('warehouse', c)).then(() => bakeCast('forest')).then((c) => bakeScore('forest', c)).catch(warn);
 
@@ -527,5 +570,7 @@ export function createAudio(game) {
     C = null; bakeCast(map).then((c) => { if (game.story.chapter.map === map) C = c; }, warn);
     step = map === 'forest' ? 'stepGrass' : 'stepConcrete';
     for (const { hero: h } of game.players) { const id = h.char.id; bakeVoice(id).then((v) => { V[id] = v; }, warn); }
+    L.stop(); L.prefetch({ chapter: game.chapter, chars: game.players.map((p) => p.hero.char.id) });
   });
+  return { lineFrames: (who, text) => L.frames(who, text) };
 }

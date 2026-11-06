@@ -1,4 +1,4 @@
-// Bill's kit (contract: src/chars/index.js): the cart + camera moveset (moves.js, anims.js) on the dual-wield rig, the
+// Brian's kit (contract: src/chars/index.js): the cart + camera moveset (moves.js, anims.js) on the dual-wield rig, the
 // voxel man in his cap and blue T-shirt (model.js), RUSH HOUR (musou.js) and the effects view (view.js).
 import { MOVES, AIR_CHAIN_MAX } from './moves.js';
 import { BRIAN_CLIPS, runPose, rollPose } from './anims.js';

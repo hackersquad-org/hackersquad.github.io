@@ -1,4 +1,4 @@
-// Voxel Edward on the shared rig: a boy in a black T-shirt and blue jeans, white trainers, messy brown hair under a pair of
+// Voxel Adam on the shared rig: a boy in a black T-shirt and blue jeans, white trainers, messy brown hair under a pair of
 // studio headphones. Weapon: a microphone on its stand (weapon joint: 1.6 m, weighted round base at the butt end, the mic
 // with a lit ring at the tip). His drone is a render-only companion (createAdamSecondary): it hovers over his left
 // shoulder, flies ahead on the moves listed in ./moves.js DRONE_MOVES and rakes the floor with its laser on Drone Strafe

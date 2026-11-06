@@ -1,4 +1,4 @@
-// Bill — character entry (contract: src/chars/index.js).
+// Brian — character entry (contract: src/chars/index.js).
 import { BRIAN_KIT } from './kit.js';
 
 // 20×20 portrait: navy cap with its peak forward, heavy brows, stubble, blue tee
@@ -29,7 +29,7 @@ const PAL = { C: '#1f2f52', c: '#16223c', H: '#2a1c14', S: '#e0ac82', s: '#b8865
 
 export const BRIAN = {
   id: 'brian',
-  name: 'Bill', role: 'The Roadie', tag: 'BILL',
+  name: 'Brian', role: 'The Roadie', tag: 'BRIAN',
   motto: 'Heavy load, heavy hits',
   weapon: 'Cart & Camera',
   bio: ['He hauled servers for a living before he started breaking into them. A cap, a blue T-shirt, and a cart nobody can stop.',

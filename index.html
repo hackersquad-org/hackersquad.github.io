@@ -337,8 +337,13 @@
   #hud .h-mate .bar i { position: absolute; inset: 0; transform-origin: 0 50%; background: linear-gradient(#c8ffe0, #18b85a); }
   #hud .h-mate.low .bar i { background: linear-gradient(#ffb09a, #a81c10); }
   #hud .h-mate.down small { color: var(--red); }
+  #hud .h-mate.afk small { color: var(--amber); }
   #hud .h-mtag { left: 0; top: 0; opacity: 0; padding: .3rem .7rem .35rem; white-space: nowrap; font: 700 max(11px, 1.2rem)/1 var(--mono); letter-spacing: .12em;
     text-transform: uppercase; color: #fff; background: rgba(var(--f3),.72); border-bottom: .2rem solid var(--macc, var(--cyan)); }
+  /* auto mode (main.js): a bot has the controls — a pill at the top centre until the player pauses and takes them back */
+  #hud .h-auto { left: 50%; top: 5.6rem; transform: translateX(-50%); opacity: 0; white-space: nowrap; padding: .5rem 1.2rem .55rem; font: 700 max(11px, 1.3rem)/1 var(--mono);
+    letter-spacing: .14em; text-transform: uppercase; color: var(--f2); background: var(--amber); transition: opacity .25s; }
+  #hud .h-auto b { margin-right: .8rem; }
   #hud .h-down { left: 50%; top: 38%; transform: translateX(-50%); opacity: 0; text-align: center; padding: 1.2rem 3rem; background: rgba(var(--f3),.8); border-top: .25rem solid var(--red); }
   #hud .h-down b { display: block; font: 900 3.4rem/1 var(--disp); font-style: italic; text-transform: uppercase; color: var(--red); }
   #hud .h-down small { margin-top: .8rem; letter-spacing: .16em; }
@@ -376,7 +381,7 @@
   .t-press b { animation: blink 1.4s steps(1) infinite; }
   .t-press small { display: block; margin-top: 1.2rem; font: 600 max(12px, 1.3rem)/1 var(--mono); letter-spacing: .16em; color: var(--dim); }
   #title.pre .t-press { display: block; }
-  #title.pre :is(.t-menu, .t-dpanel) { display: none; }
+  #title.pre :is(.t-menu, .t-dpanel, .t-tag) { display: none; }
   #title.pre .t-arena, #title.dif .t-arena { display: none; }
   .t-menu { display: flex; flex-direction: column; gap: .6rem; margin: auto 0 1rem; }
   .t-menu button { position: relative; padding: 1rem 3rem 1rem 3.4rem; opacity: .62; transition: transform .2s cubic-bezier(.3,0,.2,1), opacity .2s, background .2s;
@@ -412,6 +417,7 @@
   .t-ctl { display: none; position: absolute; right: 6rem; top: 50%; transform: translateY(-50%); z-index: 2; padding: 2.4rem 3rem; max-width: 74rem;
     background: rgba(4,8,12,.94); border-left: .3rem solid var(--cyan); box-shadow: 0 0 6rem 3rem rgba(3,6,10,.7); }
   #title.ctl .t-ctl { display: block; animation: slideL .35s cubic-bezier(.2,0,.2,1); }
+  #title.ctl .t-tag { display: none; }
   .t-ctl h2 { margin: 0 0 1.2rem; font: 900 3.4rem/1 var(--disp); font-style: italic; text-transform: uppercase; color: var(--cyan); }
   .t-ctl table { border-collapse: collapse; font: 500 max(12px, 1.4rem)/1.4 var(--sans); }
   .t-ctl th { text-align: left; padding: .55rem 2rem .55rem 0; font: 700 max(12px, 1.4rem)/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); white-space: nowrap; }
@@ -419,8 +425,13 @@
   .t-ctl td { padding: .55rem 2rem .55rem 0; }
   .t-ctl td.pad { color: var(--dim); white-space: nowrap; }
   .t-ctl p { margin: 1.6rem 0 0; font: 500 max(12px, 1.4rem)/1.5 var(--sans); color: #d6ecf4; max-width: 66rem; }
+  .t-tag { position: absolute; left: 0; top: 0; z-index: 1; text-align: center; white-space: nowrap; pointer-events: none; padding: .5rem 1.2rem .6rem;
+    background: rgba(4,8,12,.72); border-bottom: .22rem solid var(--acc); }
+  .t-tag b { display: block; font: 900 2.2rem/1 var(--disp); font-style: italic; text-transform: uppercase; letter-spacing: .06rem; color: #fff; }
+  .t-tag small { display: block; margin-top: .35rem; font: 700 max(10px, 1.05rem)/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--acc); }
+  #title.in .t-tag { animation: fadeIn .6s ease 1.2s backwards; }
   #title .ui-foot { left: 55%; transition: opacity .4s; } #title.pre .ui-foot { opacity: 0; }
-  @media (max-aspect-ratio: 4/3) { #title .ui-foot { left: 4rem; right: 3rem; gap: 2rem; } }
+  @media (max-aspect-ratio: 4/3) { .t-tag small { display: none; } #title .ui-foot { left: 4rem; right: 3rem; gap: 2rem; } }
 
   /* ---------------------------------------------------------------- select */
   #select { --acc: var(--green); }
@@ -432,7 +443,7 @@
   .s-mode { margin-left: auto; display: flex; gap: 1rem; align-items: center; font: 700 max(12px, 1.4rem)/1 var(--mono); letter-spacing: .16em; text-transform: uppercase; }
   .s-mode b { color: var(--cyan); }
   .s-mode i { font-style: normal; padding: .4rem .8rem; color: var(--f2); background: var(--amber); border-radius: .25rem; }
-  .s-roster { position: absolute; left: 7rem; top: 9.4rem; width: 27rem; display: flex; flex-direction: column; gap: .7rem; }   /* seven fighters */
+  .s-roster { position: absolute; left: 7rem; top: 9.4rem; width: 27rem; display: flex; flex-direction: column; gap: .55rem; }   /* eight fighters */
   .s-card { position: relative; display: grid; grid-template-columns: 5rem 1fr; grid-template-rows: auto auto; column-gap: 1.4rem; align-items: center;
     padding: .6rem 1rem; background: rgba(8,14,20,.8); border-left: .3rem solid transparent; opacity: .7; transition: transform .2s, opacity .2s, background .2s; }
   .s-card canvas { grid-row: 1 / 3; width: 5rem; height: 5rem; image-rendering: pixelated; background: color-mix(in srgb, var(--acc) 28%, #05101a); }
@@ -589,10 +600,11 @@
 <canvas id="c"></canvas>
 <div id="hud" hidden></div>
 <div id="menu" hidden>
-  <div class="t">Edward<i>Fighter</i></div>
+  <div class="t">Adam<i>Fighter</i></div>
   <div class="en" style="--d:.04s">HACKER SQUAD</div>
   <div class="sub" style="--d:.08s">Paused</div>
   <button id="go" style="--d:.14s">Resume</button>
+  <button id="auto" style="--d:.16s">Auto mode <small>A bot plays for you</small></button>
   <button id="quit" style="--d:.18s">Quit <small>Back to the title</small></button>
   <div class="hint" style="--d:.22s"><kbd>↑</kbd><kbd>↓</kbd> Select · <kbd>Enter</kbd><kbd class="pad">A</kbd> Confirm · <kbd>Esc</kbd><kbd class="pad">B</kbd> Resume</div>
 </div>

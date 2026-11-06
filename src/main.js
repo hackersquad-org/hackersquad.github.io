@@ -24,6 +24,8 @@
 // a public link to the host's server (the lobby shows it), and the lockstep's input delay follows the connection. The host's
 // pause holds everyone; a guest's pause only takes his own fighter out of the fight (it stands still, untouchable, drawn
 // half transparent; game.js hero.afk) while the battle runs on for the others.
+// Auto mode (pause menu, solo or co-op): a bot (bot/bot.js) plays this fighter — its input stands in for the keyboard's,
+// to the sim and, in co-op, to the others — until the player pauses again and picks RESUME to take the controls back.
 // Dev shortcut: ?go=story|free[&char=id][&ch=championship|defense] skips the screens straight into a battle; ?enemies=n sets the crowd size.
 // Missions: the game has two (story/chapters.js) — the Warehouse Championship and the Village Defense. The title menu
 // (co-op: the host, in the lobby) picks one; it travels as ctx.chapter through select → loading → battle → result.
@@ -56,6 +58,7 @@ import { createLockstep } from './net/lockstep.js';
 import { createLobby } from './ui/lobby.js';
 import { MAP, setMap } from './world/map.js';
 import { resolveChapter, DEFAULT_CHAPTER, CHAPTER_ORDER } from './story/chapters.js';
+import { loadBot, SCRIPTED } from './bot/bots.js';
 
 const params = new URLSearchParams(location.search);
 // mobile quality tier: coarse pointers get 150 enemies, no MSAA / DoF, half-res bloom; ?hq forces full.
@@ -102,7 +105,7 @@ function buildViews() {
 buildViews();
 // hud: camera passed so boss name / HP tags can be projected over their heads (read-only)
 const hud = createHud(document.getElementById('hud'), game, camRig.camera);
-createAudio(game);
+game.audio = createAudio(game);              // { lineFrames }: the HUD holds a line's text while its voice clip plays
 
 /** One sim step on the players' inputs (solo: the local one; co-op: both, from the lockstep). */
 function step(inputs) {
@@ -159,11 +162,25 @@ const menu = $('menu'), hudEl = $('hud');
 // the bindings mid-battle too
 menu.querySelector('.hint').insertAdjacentHTML('beforebegin', `<table>${CONTROLS.map(([n, kb, pad]) => `<tr><td>${n}</td><td>${kb}</td><td class="pad">${pad}</td></tr>`).join('')}</table>`);
 let paused = false, state = null, ctx = {}, hold = false;   // hold: loading, no renders until the new kit is compiled
-// pause menu: RESUME focused on open, ↑/↓ / pad move, Enter / A confirm, Esc / B resume. QUIT asks once (Sure?), a
-// second confirm wipes to the title.
-const mBtns = [$('go'), $('quit')], quitEl = $('quit');
-/** This player's input for the next step: the keyboard / pad / touch. */
-const localInput = () => input.sample();
+// pause menu: RESUME focused on open, ↑/↓ / pad move, Enter / A confirm, Esc / B resume. AUTO MODE hands the fighter to
+// the bot (RESUME takes it back). QUIT asks once (Sure?), a second confirm wipes to the title.
+const mBtns = [$('go'), $('auto'), $('quit')], quitEl = $('quit'), autoEl = $('auto'), goEl = $('go'), hintEl = menu.querySelector('.hint');
+let auto = false, bot = null, botSrc = SCRIPTED;             // auto mode: the bot's policy stands in for input.sample()
+const setAuto = (v) => {
+  auto = game.auto = v;
+  bot = v ? botSrc.create() : null;                          // (a fresh one each time: no stale path / progress watch)
+  hudEl.classList.toggle('auto', v);
+  if (v) hudEl.querySelector('.h-auto').innerHTML = `<b>Auto mode</b>${botSrc === SCRIPTED ? 'a bot' : botSrc.name} is playing · Esc, then Resume to take over`;
+};
+// which bot (src/bot/bots.js): ?bot=<name> loads bots/<name>.json (a trained network) or a bots/*.js module; a bot file
+// dropped on the page does the same. The rules (src/bot/scripted.js) otherwise.
+const useBot = (p) => p.then((b) => { botSrc = b; if (auto) bot = b.create(); }).catch((e) => { console.warn(e); alert(`Bot not loaded: ${e.message}`); });
+if (params.get('bot')) useBot(loadBot(params.get('bot')));
+addEventListener('dragover', (e) => e.preventDefault());
+addEventListener('drop', (e) => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f && /\.(json|m?js)$/i.test(f.name)) useBot(loadBot(f)); });
+/** This player's input for the next step: the bot's in auto mode (the keyboard is still drained, so no press is left
+ *  latched for the moment he takes over), else the keyboard / pad / touch. */
+const localInput = () => { const s = input.sample(); return auto && !paused ? bot(game) : s; };
 let mCur = 0, quitArm = false;
 const armQuit = (v) => {
   quitArm = v; quitEl.classList.toggle('arm', v);
@@ -172,10 +189,11 @@ const armQuit = (v) => {
 const mFocus = (i) => {
   mCur = (i + mBtns.length) % mBtns.length;
   mBtns.forEach((b, k) => b.classList.toggle('on', k === mCur));
-  if (mCur !== 1 && quitArm) armQuit(false);
+  if (mCur !== 2 && quitArm) armQuit(false);
 };
 const mOk = () => {
-  if (mCur === 0) return setPaused(false);                 // RESUME
+  if (mCur === 0) { if (auto) setAuto(false); return setPaused(false); }   // RESUME: the player (back) at the controls
+  if (mCur === 1) { if (!auto) setAuto(true); sfx('ok'); return setPaused(false); }   // AUTO MODE: the bot plays (on)
   if (!quitArm) { sfx('ok'); return armQuit(true); }
   sfx('back'); mNav.stop();
   leaveCoop();
@@ -185,7 +203,14 @@ const mNav = createNav({ move: (d) => { mFocus(mCur + d); sfx('move'); }, ok: mO
 const setPaused = (v) => {
   if (lock.on && v !== paused) coop.send({ t: 'pause', on: v }, true);   // co-op: the others' games wait for the host, and say why
   paused = v; menu.hidden = !v; hudEl.hidden = v; input.sample();   // sample(): drop keys pressed on the menu
-  if (v) { mFocus(0); armQuit(false); mNav.start(); } else mNav.stop();
+  if (v) {
+    // the two top lines say what they do now: with the bot playing, RESUME takes the controls back
+    goEl.innerHTML = auto ? 'Resume <small>Take the controls back</small>' : 'Resume';
+    const who = botSrc === SCRIPTED ? 'bot' : botSrc.name;
+    autoEl.innerHTML = auto ? `Auto mode <small>The ${who} keeps playing</small>` : `Auto mode <small>${botSrc === SCRIPTED ? 'A bot' : 'The ' + who} plays for you</small>`;
+    hintEl.innerHTML = `<kbd>↑</kbd><kbd>↓</kbd> Select · <kbd>Enter</kbd><kbd class="pad">A</kbd> Confirm · <kbd>Esc</kbd><kbd class="pad">B</kbd> ${auto ? 'Back (the bot plays on)' : 'Resume'}`;
+    mFocus(0); armQuit(false); mNav.start();
+  } else mNav.stop();
 };
 mBtns.forEach((b, i) => {
   b.addEventListener('pointerenter', () => { if (mCur !== i) { mFocus(i); sfx('move'); } });
@@ -208,6 +233,7 @@ const flow = {
     const set = state === 'loading';                           // deploy() already started this battle (its field is on screen)
     state = s; ctx = c;
     lock.stop();
+    if (auto) setAuto(false);                                  // (a new battle, a screen: the player's own hands again)
     game.live = s === 'battle' || s === 'result' || s === 'loading';     // world: a battle's mood and effects (the menus stand on a calm field)
     if (s === 'title' || s === 'lobby') stageMap(DEFAULT_CHAPTER); else if (s === 'select') stageMap(c.chapter);
     // the mission's colour theme (index.html body.forest): from the fighter select to the result; the title and lobby keep the hacker look
@@ -262,9 +288,9 @@ async function deploy(c) {
 }
 // ---- co-op: the session with the partner (net/session.js) and the lockstep that steps the battle (net/lockstep.js)
 const coop = createSession();
-// pause: a guest's menu is open (game.js hero.afk) · away: he is not looking — the tab is hidden — or his sim is still
-// catching up after the relay stood in for him — the same for the sim, AWAY on the others' cards
-const away = () => document.hidden || lock.catching();
+// pause: a guest's menu is open (game.js hero.afk) · away: he is not looking — the tab is hidden (the bot plays on in auto
+// mode) or his sim is still catching up after the relay stood in for him — the same for the sim, AWAY on the others' cards
+const away = () => (document.hidden && !auto) || lock.catching();
 const lock = createLockstep(coop, game, () => { const a = away(); return { ...localInput(), pause: paused || a, away: a }; }, step);
 const toast = $('toast'), syncEl = $('sync');
 let toastT = 0;

@@ -1,6 +1,6 @@
 // Voices (formant synth, bank.js voice()): who is shouting decides what a shout is.
 //   bakeVoice(charId) → { short[], long[], musou, hurt[] }   a fighter's attack calls, Overclock shout and pain
-//       the squad are kids (Edward bright, Ana high, Bill broad); the Sheep Village guests keep their own voices —
+//       the squad are kids (Adam bright, Ana high, Brian broad); the Sheep Village guests keep their own voices —
 //       Alex bleats, Bryan oinks and squeals, Clara mews and yowls, Ben hoots and screeches (and roars as the
 //       gorilla) — and Connector, a jelly, blubs.
 //   bakeCast(map) → { grunt[], cry[], officerCry[], crowd[], roar, screams, horn }   the stage's enemies

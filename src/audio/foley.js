@@ -6,8 +6,8 @@
 //   hit*   the weapon landing, layered on the body impact (steel tube, phone, laptop lid, wire cart, sign, cone, fence,
 //          umbrella cloth, bristles, jelly) — and what a blow that is not a weapon does to its victim: sonic (a sound
 //          wave), spark (laser / flash / lightning), gustHit, rainHit, burn, nip (a bat)
-//   the rest are casts: scream / feedback / bassDrop / droneBuzz / zap (Edward), shutter / flashBig / dtmf / notify / keys /
-//   glitch (Ana, Bill's camera), cartRoll / crash (Bill), brollyOpen / gust / rain / thunder (Alex), honk / skid /
+//   the rest are casts: scream / feedback / bassDrop / droneBuzz / zap (Adam), shutter / flashBig / dtmf / notify / keys /
+//   glitch (Ana, Brian's camera), cartRoll / crash (Brian), brollyOpen / gust / rain / thunder (Alex), honk / skid /
 //   conePop / fenceDrop / jack / rumble (Bryan), flame / pillar / pumpkin / toss / bats (Clara), draw / twang / boomer /
 //   boomerTick / hitBoomer / splat / spikes / peel / pound / chestBeat / whistleDown / stink (Ben), boing / pop / inflate /
 //   deflate (Connector); stepConcrete / stepGrass are the fighter's own feet on the stage's floor.
@@ -125,7 +125,7 @@ const R = {
   rainHit: [5, 0.2, (oc, d) => { for (let i = 0; i < 6; i++) burst(oc, d, rnd(0, 0.07), 'bandpass', rnd(2200, 5200), 2.5, rnd(0.006, 0.014), rnd(0.4, 1)); burst(oc, d, 0, 'lowpass', 500, 0.7, 0.04, 0.5); }],
   burn: [5, 0.35, (oc, d) => { fire(oc, d, 0, rnd(0.18, 0.26), 500, 1400, 0.9); burst(oc, d, 0, 'highpass', 4500, 0.7, 0.14, 0.3, 0.01); }],
   nip: [5, 0.12, (oc, d) => { sweep(oc, d, 0, 'sine', rnd(6500, 8500), rnd(4000, 5000), 0.03, 0.7, 0.002); burst(oc, d, 0.01, 'bandpass', 2600, 2, 0.012, 0.6); }],
-  // ---- Edward: voice, feedback, drone
+  // ---- Adam: voice, feedback, drone
   scream: [3, 0.7, (oc, d) => {                              // a kid screaming a PA into the red
     const drive = shaper(oc, 8), bp = filt(oc, 'bandpass', 1500, 0.5), b = rnd(470, 540);
     drive.connect(bp).connect(d);
@@ -188,7 +188,7 @@ const R = {
     o.connect(g).connect(filt(oc, 'lowpass', 5000)).connect(d);
     for (let i = 0; i < 4; i++) burst(oc, d, rnd(0, 0.2), 'highpass', 4000, 0.7, 0.01, 0.4);
   }],
-  // ---- Bill's cart
+  // ---- Brian's cart
   cartRoll: [2, 0.8, (oc, d) => {                            // casters on concrete, the basket chattering
     nz(oc, 0, 0.75).connect(filt(oc, 'lowpass', 380)).connect(flutter(oc, 0, 0.75, 15, 0.5)).connect(env(oc, 0, [[0, 0], [0.08, 1], [0.5, 0.9], [0.75, 0]])).connect(d);
     rattle(oc, d, 0, 0.7, 45, 0.45);

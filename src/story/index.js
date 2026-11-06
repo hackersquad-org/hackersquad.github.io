@@ -19,7 +19,8 @@
 // calling his copies mid-fight), model(key, modelKey): the officer's model key from here on (render-only: a mask comes off).
 // Map gates (world/map.js GATES) are sim state: the championship closes them all at reset, a beat's `gate: id` opens one
 // (clampWalk lets everyone through, the world builder rolls the shutter up).
-// Emits story:say / story:banner / story:objective / story:end (payloads: core/events.js). The flow (main.js) leaves the
+// Emits story:say / story:banner / story:objective / story:end (payloads: core/events.js); a say line carries `who`, the
+// speaker's id, which the voice bank (audio/lines.js) files its clip under. The flow (main.js) leaves the
 // battle for the result screen on story:end; the HUD shows the rest.
 // Also owns game.timeScale (wall-clock pace of the fixed-step loop, main.js): 1, except the victory slow-mo.
 // Modes: 'story' = the championship (the active stage's BEATS, format: header of ./championship.js), run strictly in order
@@ -79,9 +80,10 @@ export function createStory(game) {
     const e = { text, dur };
     let who = line.who;                                              // a playable id speaks as the hero or the ally
     if (CHARS[who]) who = who === S.char ? 'hero' : 'ally';
-    if (who === 'hero') Object.assign(e, { speaker: hero.name, portrait: hero.id, side: 'us' });
-    else if (who === 'ally') { const a = CHARS[S.ally]; Object.assign(e, { speaker: a.name, portrait: a.id, side: 'us' }); }
-    else { const p = SPK[who]; Object.assign(e, { speaker: p.name, portrait: { seal: p.tag }, side: p.side }); }
+    // who: the speaker's id (a fighter's, or the SPK key) — the voice clip of the line is filed under it (audio/lines.js)
+    if (who === 'hero') Object.assign(e, { who: hero.id, speaker: hero.name, portrait: hero.id, side: 'us' });
+    else if (who === 'ally') { const a = CHARS[S.ally]; Object.assign(e, { who: a.id, speaker: a.name, portrait: a.id, side: 'us' }); }
+    else { const p = SPK[who]; Object.assign(e, { who, speaker: p.name, portrait: { seal: p.tag }, side: p.side }); }
     S.q.push(e);
   };
 
@@ -185,7 +187,7 @@ export function createStory(game) {
     for (const p of L) if (p.hero.combo > S.maxChain) S.maxChain = p.hero.combo;
     if (S.mode === 'free') {
       const ch = L[0].hero.char;
-      if (game.frame === 185) emit('story:say', { text: introOf(ch, st.chapter.id), dur: 300, speaker: ch.name, portrait: ch.id });   // the hero's opening line
+      if (game.frame === 185) emit('story:say', { who: ch.id, text: introOf(ch, st.chapter.id), dur: 300, speaker: ch.name, portrait: ch.id });   // the hero's opening line
       const FN = st.chapter && st.chapter.freeNames;                  // the stage's own names for the arena's lieutenants
       if (FN) for (let k = 0; k < c.offName.length; k++) if (c.offName[k] && !FN.includes(c.offName[k])) c.offName[k] = FN[k % FN.length];
       return;

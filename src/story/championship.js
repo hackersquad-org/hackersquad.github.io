@@ -9,7 +9,7 @@
 // knock-outs (ROUND_KOS since the round began): hackers knocked out during a boss fight count toward the thousand, but
 // they never skip a round.
 // Data for the story director (src/story/index.js): SPK (speakers), OFF (lieutenants and bosses), BEATS (the script, run
-// strictly in order), the result screen's texts, and script() — the bosses' behaviours (src/chars/officers/bosses.js).
+// strictly in order), PHASES (the leaders' phase lines), the result screen's texts, and script() — the bosses' behaviours (src/chars/officers/bosses.js).
 //   beat = { when: trigger | [any of], …effects }
 //     triggers: wait (frames since the last beat), kos (K.O.s since the last beat), total (K.O.s this battle), zone (the
 //       hero reached the zone), down (officer key defeated), flag
@@ -143,11 +143,11 @@ export const BEATS = [
 
 // ---- result screen
 export const EPILOGUE = {
-  adam: ['Edward signs off the broadcast with the champion\'s belt over his shoulder and the drone circling the scoreboard.',
+  adam: ['Adam signs off the broadcast with the champion\'s belt over his shoulder and the drone circling the scoreboard.',
     'The whole warehouse heard it: the kid with the microphone is the best hacker in the building.'],
   ana: ['Ana posts one photo — the scoreboard, the belt, a peace sign — and the feed melts.',
     'A thousand challengers, four top hackers, one girl in a sailor dress. It goes viral before she reaches the door.'],
-  brian: ['Bill loads the champion\'s belt into the cart with the rest of the gear, takes one last picture and pushes off.',
+  brian: ['Brian loads the champion\'s belt into the cart with the rest of the gear, takes one last picture and pushes off.',
     'Nobody stands in the way of the cart on the way out.'],
   alex: ['Alex opens the umbrella over the champion\'s belt, checks the sky through his goggles, and finds a roof. He keeps it open anyway.',
     'The forecast for the warehouse: clear, with a sheep on top of the bracket.'],
@@ -164,19 +164,22 @@ export const EPILOGUE = {
 };
 export const DEFEAT = '{name} is knocked out of the bracket… the champion keeps the title.';
 
+// ---- the bosses' phase lines and banners (script() below fires PHASES[boss][phase] as the fight reaches that phase;
+// tools/voices.mjs reads the lines from here to make their voice clips)
+export const PHASES = {
+  phish: { 2: { say: [{ who: 'phish', text: 'You clicked the link. They always click the link.' }] },
+    3: { banner: { html: 'PHISH floods the floor', sub: 'Spam flood', dur: 140 } } },
+  trojan: { 2: { say: [{ who: 'trojan', text: 'Feel the payload!' }] },
+    3: { banner: { html: 'TROJAN calls his squads', sub: 'Berserk', dur: 140 }, say: [{ who: 'trojan', text: 'Open the gates! Everybody in!' }] } },
+  ransom: { 2: { banner: { html: '<em>Lockdown</em>', sub: 'RANSOM calls his squads', dur: 140 } },
+    3: { say: [{ who: 'ransom', text: 'The price just doubled!' }] } },
+  root: { 2: { banner: { html: 'ROOT forks himself', sub: 'Three copies join the fight', dur: 150 }, say: [{ who: 'root', text: 'fork(); fork(); fork();' }] },
+    3: { banner: { html: '<em>Blackout</em>', sub: 'ROOT kills the lights', dur: 150 }, say: [{ who: 'root', text: 'Lights out.' }] },
+    4: { banner: { html: 'The mask comes off', sub: 'ROOT is enraged', dur: 150, big: true }, say: [{ who: 'root', text: 'Enough! sudo end this!' }] } },
+};
+
 // ---- script: the four bosses, one shared set of hazards
 export function script(game, api) {
   const H = createHazards(game, api);
-  const bosses = [
-    createBoss('phish', game, api, H, { on: { 2: { say: [{ who: 'phish', text: 'You clicked the link. They always click the link.' }] },
-      3: { banner: { html: 'PHISH floods the floor', sub: 'Spam flood', dur: 140 } } } }),
-    createBoss('trojan', game, api, H, { on: { 2: { say: [{ who: 'trojan', text: 'Feel the payload!' }] },
-      3: { banner: { html: 'TROJAN calls his squads', sub: 'Berserk', dur: 140 }, say: [{ who: 'trojan', text: 'Open the gates! Everybody in!' }] } } }),
-    createBoss('ransom', game, api, H, { on: { 2: { banner: { html: '<em>Lockdown</em>', sub: 'RANSOM calls his squads', dur: 140 } },
-      3: { say: [{ who: 'ransom', text: 'The price just doubled!' }] } } }),
-    createBoss('root', game, api, H, { on: { 2: { banner: { html: 'ROOT forks himself', sub: 'Three copies join the fight', dur: 150 }, say: [{ who: 'root', text: 'fork(); fork(); fork();' }] },
-      3: { banner: { html: '<em>Blackout</em>', sub: 'ROOT kills the lights', dur: 150 }, say: [{ who: 'root', text: 'Lights out.' }] },
-      4: { banner: { html: 'The mask comes off', sub: 'ROOT is enraged', dur: 150, big: true }, say: [{ who: 'root', text: 'Enough! sudo end this!' }] } } }),
-  ];
-  return stageScript(H, bosses);
+  return stageScript(H, Object.keys(PHASES).map((k) => createBoss(k, game, api, H, { on: PHASES[k] })));
 }

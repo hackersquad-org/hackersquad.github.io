@@ -1,4 +1,4 @@
-// Edward — character entry (contract: src/chars/index.js).
+// Adam — character entry (contract: src/chars/index.js).
 import { ADAM_KIT } from './kit.js';
 
 // 20×20 portrait: messy brown hair, headphones with lit cups, a grin, black tee
@@ -29,7 +29,7 @@ const PAL = { H: '#5a3a22', h: '#7a5230', P: '#1a1c22', C: '#38e8ff', S: '#f1c9a
 
 export const ADAM = {
   id: 'adam',
-  name: 'Edward', role: 'The Broadcaster', tag: 'EDWARD',
+  name: 'Adam', role: 'The Broadcaster', tag: 'ADAM',
   motto: 'Loud, fast and always on air',
   weapon: 'Microphone & Drone',
   bio: ['A kid who learned to hack by jamming the school PA system. Black T-shirt, jeans, headphones he never takes off.',

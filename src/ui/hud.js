@@ -163,7 +163,9 @@ export function createHud(root, game, camera) {
     set(dlgSeal, 'display', seal ? 'block' : 'none'); if (seal) text(dlgSeal, seal);
     dlg.classList.toggle('foe', side === 'them');
   };
-  on('story:say', (e) => say(e.text, e.dur ?? 300, e.speaker, e.portrait, e.side));
+  // a line's text holds for its sim duration, or as long as its voice clip runs (audio/lines.js), whichever is longer
+  const spoken = (who, text, dur) => Math.max(dur, game.audio ? game.audio.lineFrames(who, text) + 24 : 0);
+  on('story:say', (e) => say(e.text, spoken(e.who, e.text, e.dur ?? 300), e.speaker, e.portrait, e.side));
   on('story:banner', (e) => banner(e.html, e.sub || '', e.dur ?? 150, !!e.big, e.big ? 2 : 1));
   on('story:objective', (e) => { S.obj = e.text ? { text: e.text, f: game.frame } : null; if (S.obj) text(objB, e.text); });
   on('crowd:wave', (e) => {
@@ -184,7 +186,7 @@ export function createHud(root, game, camera) {
     S.tgt = e.i; S.tgtKoF = game.frame;
   });
   on('musou:start', () => { if (!game.mine()) return; S.musouF = S.actF = game.frame; S.band = null; S.dlg = null; });
-  on('musou:end', () => { if (!game.mine()) return; S.musouEnd = game.frame; say(shoutOf(game.hero.char, game.chapter)); S.dlg.f += 20; });
+  on('musou:end', () => { if (!game.mine()) return; S.musouEnd = game.frame; const t = shoutOf(game.hero.char, game.chapter); say(t, spoken(game.hero.char.id, t, 300)); S.dlg.f += 20; });
   on('hero:hurt', () => { if (game.mine()) S.hurtF = S.actF = game.frame; });
   addEventListener('keydown', (e) => { if (e.code === 'KeyH') showKeys = !(showKeys ?? true); });
 

@@ -1,4 +1,4 @@
-// Bill's effects view (render-only; reads game.musou = ./musou.js and the hero's move, never writes sim state).
+// Brian's effects view (render-only; reads game.musou = ./musou.js and the hero's move, never writes sim state).
 //  · the camera's flashes (N3, C4 Burst Mode): a white cone down the lane and a blink of the whole screen
 //  · Cart Surf / the Overclock ride: sparks off the wheels
 //  · Overclock RUSH HOUR: an amber vignette and the cut-in; a white ring per flash; an amber streak along the ride; the
@@ -15,7 +15,7 @@ const WHITE = [2.8, 2.7, 2.4], AMBER = [3.0, 1.7, 0.4], BLUE = [0.5, 1.4, 3.0];
 export function createMusouView(scene, game) {
   const mu = game.musou, hero = game.hero;
   const fx = createFx(scene);
-  const ov = createOverlay({ sub: 'Rush Hour', seal: 'BILL',
+  const ov = createOverlay({ sub: 'Rush Hour', seal: 'BRIAN',
     css: { big: 'color:#fff6e0; text-shadow: 0 0 2vh rgba(255,176,46,.9), 0 0 5vh rgba(42,111,208,.6);', sub: 'color:#ffe0a0; text-shadow: 0 0 1vh rgba(0,0,0,.7);',
       seal: 'background:#ffb02e; box-shadow: 0 0 2vh rgba(255,176,46,.6);' } });
   ov.dim.style.background = 'radial-gradient(ellipse at 50% 55%, rgba(255,240,210,1) 25%, rgba(40,24,0,1) 100%)';

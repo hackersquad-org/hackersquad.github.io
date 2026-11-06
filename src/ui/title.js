@@ -1,16 +1,16 @@
 // Title screen (#title, ui lane). Key art over the live warehouse: the eight fighters lined up on their real voxel models
-// (kit.model on their own rigs, their secondary life running: Edward's drone, Ana's twin tails, Connector's wobble), each
+// (kit.model on their own rigs, their secondary life running: Adam's drone, Ana's twin tails, Connector's wobble), each
 // in a held frame of one of its own clips, data motes rising round them, neon glows behind in deep bokeh; a slow push-in
 // on enter, then a breathing drift (+ a little mouse parallax). The lens is fitted every frame to the line-up's posed
 // bounds, so all four stay whole in the column right of the logo / menu band at any window shape.
 // Render-only: view(scene, camera, focus, dt) runs after the gameplay camera rig while this screen is up (main.js header).
-// 2D: a dark band on the left carrying the logo and the menu, key / pad prompts along the bottom. The warehouse's
-// scoreboards are hidden while the screen is up (a clean backdrop behind the line-up). First boot shows a "press any key" card (also unlocks audio); returns go straight to the menu.
+// 2D: a dark band on the left carrying the logo and the menu, a name tag over each fighter's head, key / pad prompts along
+// the bottom. First boot shows a "press any key" card (also unlocks audio); returns go straight to the menu.
 // Menu: one line per mission (story/chapters.js: Warehouse Championship, Village Defense) / Practice → the difficulty
 // panel in place of the menu (Easy · Normal · Hard · Extremely Hard + a card: the tier's line and pressure / bosses /
 // damage pips, core/difficulty.js), confirm → select {mode, chapter}, Esc back to the menu. Practice first asks which
-// mission's arena to train in (the arena panel) · Controls → the controls panel (Esc back). (Co-op is not offered on the
-// menu; the lobby, ui/lobby.js, is still reached with ?coop in the URL.) The title always stands in the warehouse (main.js stageMap).
+// mission's arena to train in (the arena panel) · Co-op → the lobby (ui/lobby.js: the host picks the mission there) ·
+// Controls → the controls panel (Esc back). The title always stands in the warehouse (main.js stageMap).
 // Mouse: hover highlights an item, click activates it.
 // Screen contract: createTitle(el, flow) → { enter(ctx), exit(), view } (src/main.js header).
 import * as THREE from 'three';
@@ -29,6 +29,7 @@ export const GAME_TAGLINE = 'Pick your mission';
 const ITEMS = [
   ...CHAPTER_ORDER.map((id) => ({ go: 'story', chapter: id, ...CHAPTERS[id].menu })),
   { go: 'free', label: 'Practice', sub: 'Endless waves · either arena · no knock-out' },
+  { go: 'coop', label: 'Co-op', sub: '2–4 players · same Wi-Fi or over the internet' },
   { go: 'controls', label: 'Controls', sub: 'Keyboard · gamepad · touch' },
 ];
 export const CONTROLS = [   // also the pause menu's table (main.js): [action, keyboard, gamepad]
@@ -52,19 +53,16 @@ export const STAGE = {
   fitR: 0.965, fitT: 0.14, fitK: 0.9,    // framing: right edge, top of the highest point, the floor line under the front rank
   push: 0.22, pushT: 3.2,      // enter: start this much farther back and push in to the fitted frame over pushT s
   motes: 300,
-  // one staggered line, screen-left to right, alternating front / back rank so nobody stands in front of anybody: about
-  // a metre apart as seen from the lens (the back rank's x is stretched ~1.2× for the perspective). The hackers in the
-  // back rank, the guests from Sheep Village in front (show: rig.show, the key-art flourish — Alex's umbrella open);
-  // Connector's wide blob at the far end where it covers no one.
   cast: [
-    { id: 'adam', clip: 'mu_adam', u: 24 / 210, x: 2.8, z: 0.9, face: Math.PI + 0.2, look: [0.7, 1.8] },
-    { id: 'ana', clip: 'n3', u: 16 / 30, x: 0.4, z: 0.8, face: Math.PI + 0.05, look: [1.0, 2.0] },
-    { id: 'brian', clip: 'idle', u: 0.2, x: -2.1, z: 0.9, face: Math.PI - 0.15, look: [0.8, 1.8] },
-    { id: 'connector', clip: 'c2', u: 20 / 52, x: -4.75, z: 0.8, face: Math.PI - 0.35, look: [0.9, 2.0] },
-    { id: 'alex', clip: 'keyart', u: 0, show: 1, x: 3.3, z: -0.8, face: Math.PI + 0.3, look: [0.5, 1.2] },
-    { id: 'bryan', clip: 'keyart', u: 0, show: 1, x: 1.3, z: -0.9, face: Math.PI + 0.1, look: [0.5, 1.2] },
-    { id: 'clara', clip: 'keyart', u: 0, show: 1, x: -0.7, z: -0.9, face: Math.PI - 0.1, look: [0.7, 1.4] },
-    { id: 'ben', clip: 'keyart', u: 0, show: 1, x: -2.7, z: -0.9, face: Math.PI - 0.25, look: [0.6, 1.3] },
+    { id: 'adam', clip: 'mu_adam', u: 24 / 210, x: 1.35, z: 0, face: Math.PI + 0.22, look: [0.7, 1.8] },
+    { id: 'ana', clip: 'n3', u: 16 / 30, x: 0.0, z: 0.75, face: Math.PI + 0.05, look: [1.0, 2.0] },
+    { id: 'brian', clip: 'idle', u: 0.2, x: -1.45, z: 1.5, face: Math.PI - 0.2, look: [0.8, 1.8] },
+    { id: 'connector', clip: 'c2', u: 20 / 52, x: -2.9, z: 0.1, face: Math.PI - 0.3, look: [0.9, 2.0] },
+    // the guests from Sheep Village, in the front row (show: rig.show, the key-art flourish — Alex's umbrella open)
+    { id: 'alex', clip: 'keyart', u: 0, show: 1, x: 2.4, z: -0.8, face: Math.PI + 0.25, look: [0.5, 1.2] },
+    { id: 'bryan', clip: 'keyart', u: 0, show: 1, x: 0.95, z: -0.9, face: Math.PI + 0.1, look: [0.5, 1.2] },
+    { id: 'clara', clip: 'keyart', u: 0, show: 1, x: -0.5, z: -0.9, face: Math.PI - 0.15, look: [0.7, 1.4] },
+    { id: 'ben', clip: 'keyart', u: 0, show: 1, x: -1.9, z: -1.0, face: Math.PI - 0.3, look: [0.6, 1.3] },
   ],
 };
 
@@ -75,6 +73,7 @@ const GLOWS = [[-6, 3.5, 30, 40, 14, 0.06, 0.36, 0.5], [9, 2.5, 22, 22, 10, 0.4,
 export function createTitle(el, flow) {
   el.innerHTML = `
     <div class="t-veil"></div>
+    ${STAGE.cast.map(({ id }) => { const c = CHARS[id]; return `<div class="t-tag" data-id="${id}" style="--acc:${c.accent}"><b>${c.name}</b><small>${c.role}</small></div>`; }).join('')}
     <div class="t-band">
       <div class="t-logo"><i class="t-chip">${STAGE.cast.length} fighters · ${CHAPTER_ORDER.length} missions · 1000 K.O.</i><h1>${GAME_TITLE.split(' ').map((w) => `<span data-t="${w}"><b>${w}</b></span>`).join('')}</h1>
         <p class="t-sub"><span>${GAME_TAGLINE}</span></p></div>
@@ -91,7 +90,7 @@ export function createTitle(el, flow) {
         the left half of the screen, the buttons are on the right.</p></section>
     <footer class="ui-foot"></footer>`;
   const $ = (s) => el.querySelector(s), btns = [...el.querySelectorAll('.t-main button')], dbtns = [...el.querySelectorAll('.t-dif button')];
-  const abtns = [...el.querySelectorAll('.t-arena button')];
+  const tags = [...el.querySelectorAll('.t-tag')], abtns = [...el.querySelectorAll('.t-arena button')];
   let cur = 0, pre = true, ctl = false, busy = false, dcur = 1, dmode = null;   // dmode: the mode picked, while the difficulty panel is up
   let chap = CHAPTER_ORDER[0], arena = false, acur = 0;                 // the mission picked · the practice arena panel is up, its cursor
 
@@ -142,6 +141,7 @@ export function createTitle(el, flow) {
     if (arena) { sfx('ok'); chap = CHAPTER_ORDER[acur]; setArena(false); return setDif('free'); }
     const it = ITEMS[cur];
     if (it.go === 'controls') { sfx('ok'); return setCtl(true); }
+    if (it.go === 'coop') { sfx('ok'); busy = true; return inkWipe(() => flow.go('lobby')); }   // ui/lobby.js
     sfx('ok');
     if (it.go === 'free') return setArena(true);
     chap = it.chapter; setDif(it.go);
@@ -176,7 +176,6 @@ export function createTitle(el, flow) {
 
   // ---- 3D stage (render-only; built on the first view, hidden on exit, kept for the session)
   let group = null, motes = null, t = 0, enterT = 0;
-  let boards = [], boardsRoot = null;   // the warehouse's scoreboard meshes (world.js name 'scoreboard'), off on this screen
   const cast = [], glows = [];
   const pose = new Float32Array(POSE_SIZE), S0 = new THREE.Vector3(), P = new THREE.Vector3(), V = new THREE.Vector3(), Q = new THREE.Vector3();
   const E = new THREE.Box3(), A = new THREE.Box3();
@@ -213,9 +212,6 @@ export function createTitle(el, flow) {
 
   function view(scene, camera, focus, dt) {
     if (!group) build(scene);
-    const wr = scene.getObjectByName('world-warehouse');          // (rebuilt after a mission elsewhere: look the boards up again)
-    if (wr !== boardsRoot) { boardsRoot = wr; boards = wr ? wr.children.filter((o) => o.name === 'scoreboard') : []; }
-    for (const b of boards) b.visible = false;
     group.visible = true;
     dt = Math.min(dt || 1 / 60, 0.1); t += dt;
     const S = STAGE, O = passPoint(S0, S.at);
@@ -288,6 +284,15 @@ export function createTitle(el, flow) {
     camera.lookAt(V.set(cx, cy + Math.tan(tilt) * 10, cz + 10));
     camera.updateMatrixWorld();
     focus.set(O.x + S.cast[1].x, O.y + 1.2, O.z + S.cast[1].z);
+    // name tags: over each fighter's head (the top centre of its posed box), clear of the frame edges
+    const w = innerWidth, h = innerHeight, rem = h / 72;
+    for (let i = 0; i < tags.length; i++) {
+      const b = cast[i].box;
+      V.set((b.min.x + b.max.x) / 2, Math.min(b.max.y, P.y + 2.6) + 0.12, (b.min.z + b.max.z) / 2).project(camera);
+      const px = Math.max(8 * rem, Math.min(w - 8 * rem, (V.x * 0.5 + 0.5) * w));
+      const py = Math.max(7 * rem, (0.5 - V.y * 0.5) * h);
+      tags[i].style.transform = `translate(${px.toFixed(1)}px, ${py.toFixed(1)}px) translate(-50%, -100%)`;
+    }
   }
 
   return {
@@ -301,6 +306,6 @@ export function createTitle(el, flow) {
       for (const m of cast) m.fresh = true;
       nav.start(); active = true;
     },
-    exit() { nav.stop(); busy = false; active = false; if (group) group.visible = false; for (const b of boards) b.visible = true; },
+    exit() { nav.stop(); busy = false; active = false; if (group) group.visible = false; },
   };
 }

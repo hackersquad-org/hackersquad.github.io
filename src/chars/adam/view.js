@@ -1,4 +1,4 @@
-// Edward's effects view (render-only; reads game.musou = ./musou.js and the hero's move, never writes sim state).
+// Adam's effects view (render-only; reads game.musou = ./musou.js and the hero's move, never writes sim state).
 //  · Feedback (C1): cyan sound cones pulsing out of the mic, a wide violet one on the last note
 //  · Overclock SONIC BOOM: a violet vignette and the cut-in; a ring per scream; an equaliser — a circle of bars round him
 //    jumping to the beat — while it plays; a red scorch line down the strafed lane; the bass ring, rising tiles and a
@@ -15,7 +15,7 @@ const CYAN = [0.5, 2.4, 3.0], VIOLET = [1.8, 0.8, 3.0], RED = [3.0, 0.6, 0.5], B
 export function createMusouView(scene, game) {
   const mu = game.musou, hero = game.hero;
   const fx = createFx(scene);
-  const ov = createOverlay({ sub: 'Sonic Boom', seal: 'EDWARD',
+  const ov = createOverlay({ sub: 'Sonic Boom', seal: 'ADAM',
     css: { big: 'color:#eafcff; text-shadow: 0 0 2vh rgba(56,232,255,.9), 0 0 5vh rgba(154,107,255,.6);', sub: 'color:#9ff4ff; text-shadow: 0 0 1vh rgba(0,0,0,.7);',
       seal: 'background:#38e8ff; box-shadow: 0 0 2vh rgba(56,232,255,.6);' } });
   ov.dim.style.background = 'radial-gradient(ellipse at 50% 55%, rgba(210,240,255,1) 25%, rgba(20,8,48,1) 100%)';

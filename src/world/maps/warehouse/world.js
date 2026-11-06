@@ -175,7 +175,7 @@ export function buildWarehouse(scene, root) {
   const board = scoreboard(), boardMat = new THREE.MeshBasicMaterial({ map: board.tex, color: new THREE.Color(0.85, 0.85, 0.85) });
   for (const [x, y, z, w] of [[0, 11.2, 39.6, 26], [0, 11.6, -112.1, 13], [0, 11.6, -40.1, 13]]) {
     const m = new THREE.Mesh(new THREE.PlaneGeometry(w, w * 160 / 512), boardMat);
-    m.position.set(x, y, z); m.rotation.y = Math.PI; m.name = 'scoreboard'; root.add(m);   // (name: the title hides them)
+    m.position.set(x, y, z); m.rotation.y = Math.PI; root.add(m);
   }
 
   // ---- the shutters: slatted leaves that roll up into the lintel when their gate opens

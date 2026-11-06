@@ -11,7 +11,7 @@
 // knock-outs (WAVE_KOS since the wave began): invaders knocked out during a boss fight count toward the thousand, but
 // they never skip a wave.
 // Data for the story director (src/story/index.js): SPK (speakers), OFF (lieutenants and bosses), BEATS (the script, run
-// strictly in order), the result screen's texts, and script() — the bosses' behaviours (src/chars/officers/bosses.js).
+// strictly in order), PHASES (the leaders' phase lines), the result screen's texts, and script() — the bosses' behaviours (src/chars/officers/bosses.js).
 //   beat = { when: trigger | [any of], …effects }
 //     triggers: wait (frames since the last beat), kos (K.O.s since the last beat), total (K.O.s this battle), zone (the
 //       hero reached the zone), down (officer key defeated), flag
@@ -146,11 +146,11 @@ export const BEATS = [
 
 // ---- result screen
 export const EPILOGUE = {
-  adam: ['Edward hands the microphone to the Elder Ram for the victory speech and lets the drone film the whole flock cheering.',
+  adam: ['Adam hands the microphone to the Elder Ram for the victory speech and lets the drone film the whole flock cheering.',
     'The broadcast from Sheep Village breaks every record the warehouse ever set.'],
   ana: ['Ana takes one selfie with the flock — forty sheep, one sailor dress, a peace sign — and posts it from the meadow.',
     'The wolves see it too, wherever they ran to. None of them leaves a comment.'],
-  brian: ['Bill loads the cart with wolf helmets for the village scrapyard and photographs every lamb that asks. All of them ask.',
+  brian: ['Brian loads the cart with wolf helmets for the village scrapyard and photographs every lamb that asks. All of them ask.',
     'He leaves the forest with a full memory card and a wheel that squeaks of victory.'],
   alex: ['Alex pushes the goggles up, opens the umbrella and walks home in the first rain since the wolves came.',
     'The meadow will grow back. The story of the sheep with the umbrella will grow faster.'],
@@ -167,19 +167,22 @@ export const EPILOGUE = {
 };
 export const DEFEAT = '{name} goes down… and the pack marches on the village.';
 
+// ---- the leaders' phase lines and banners (script() below fires PHASES[leader][phase] as the fight reaches that phase;
+// tools/voices.mjs reads the lines from here to make their voice clips)
+export const PHASES = {
+  vixen: { 2: { say: [{ who: 'vixen', text: 'Everyone steps in the snare sooner or later.' }] },
+    3: { banner: { html: 'VIXEN rings you in', sub: 'A circle of snares', dur: 140 } } },
+  fang: { 2: { say: [{ who: 'fang', text: 'Feel the ground shake!' }] },
+    3: { banner: { html: 'IRON FANG howls for the pack', sub: 'Berserk', dur: 140 }, say: [{ who: 'fang', text: 'Pack! To me! Blow the house down!' }] } },
+  reynard: { 2: { banner: { html: '<em>Raiders, forward</em>', sub: 'REYNARD calls his squads', dur: 140 } },
+    3: { say: [{ who: 'reynard', text: 'Everything we have left — loose it all!' }] } },
+  bigbad: { 2: { banner: { html: 'The pack answers', sub: 'Three pack wolves join the fight', dur: 150 }, say: [{ who: 'bigbad', text: 'Awoooo! Pack — tear it apart!' }] },
+    3: { banner: { html: '<em>The Howl</em>', sub: 'Night falls on the battlefield', dur: 150 }, say: [{ who: 'bigbad', text: 'My, how dark it gets… the better to eat you in.' }] },
+    4: { banner: { html: 'The cloak comes off', sub: 'The BIG BAD WOLF is enraged', dur: 150, big: true }, say: [{ who: 'bigbad', text: 'ENOUGH! I\'ll huff, and I\'ll puff, and I\'ll END you!' }] } },
+};
+
 // ---- script: the four leaders, one shared set of hazards
 export function script(game, api) {
   const H = createHazards(game, api);
-  const bosses = [
-    createBoss('vixen', game, api, H, { on: { 2: { say: [{ who: 'vixen', text: 'Everyone steps in the snare sooner or later.' }] },
-      3: { banner: { html: 'VIXEN rings you in', sub: 'A circle of snares', dur: 140 } } } }),
-    createBoss('fang', game, api, H, { on: { 2: { say: [{ who: 'fang', text: 'Feel the ground shake!' }] },
-      3: { banner: { html: 'IRON FANG howls for the pack', sub: 'Berserk', dur: 140 }, say: [{ who: 'fang', text: 'Pack! To me! Blow the house down!' }] } } }),
-    createBoss('reynard', game, api, H, { on: { 2: { banner: { html: '<em>Raiders, forward</em>', sub: 'REYNARD calls his squads', dur: 140 } },
-      3: { say: [{ who: 'reynard', text: 'Everything we have left — loose it all!' }] } } }),
-    createBoss('bigbad', game, api, H, { on: { 2: { banner: { html: 'The pack answers', sub: 'Three pack wolves join the fight', dur: 150 }, say: [{ who: 'bigbad', text: 'Awoooo! Pack — tear it apart!' }] },
-      3: { banner: { html: '<em>The Howl</em>', sub: 'Night falls on the battlefield', dur: 150 }, say: [{ who: 'bigbad', text: 'My, how dark it gets… the better to eat you in.' }] },
-      4: { banner: { html: 'The cloak comes off', sub: 'The BIG BAD WOLF is enraged', dur: 150, big: true }, say: [{ who: 'bigbad', text: 'ENOUGH! I\'ll huff, and I\'ll puff, and I\'ll END you!' }] } } }),
-  ];
-  return stageScript(H, bosses);
+  return stageScript(H, Object.keys(PHASES).map((k) => createBoss(k, game, api, H, { on: PHASES[k] })));
 }

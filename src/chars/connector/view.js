@@ -1,5 +1,5 @@
 // Connector's effects view (render-only; reads game.musou = ./musou.js and the hero's move, never writes sim state).
-//  · Copy: Scream (C1): Edward's cyan sound cones; Copy: Flash (C4): Bill's white flash cones and a blink of the screen;
+//  · Copy: Scream (C1): Adam's cyan sound cones; Copy: Flash (C4): Brian's white flash cones and a blink of the screen;
 //    Clone Call (C6, or the Overclock pressed in the air): its three clones — blue, pink, yellow — each its own little jelly; a ring
 //    in its colour where each one lands, slams and pops
 //  · the hop slams (N6, C5, the stomp): an orange ring under each landing

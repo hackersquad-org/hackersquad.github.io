@@ -1,4 +1,4 @@
-// Bill's Overclock RUSH HOUR (sim; interface of src/musou/musou.js). Timeline (Overclock frames t, 210 = control
+// Brian's Overclock RUSH HOUR (sim; interface of src/musou/musou.js). Timeline (Overclock frames t, 210 = control
 // returns; hitstop pauses it):
 //   0   activation: the world holds still, he raises the camera (cut-in, 24 f)
 //   30 / 55 / 80  three blinding flashes, each wider (circle 3.4 → 4.4 → 5.4 m, spin reaction)

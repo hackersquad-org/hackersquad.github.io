@@ -1,0 +1,1305 @@
+{
+ "generated": "2026-10-29T02:28:50.759Z",
+ "model": "eleven_multilingual_v2",
+ "format": "mp3_44100_128",
+ "cast": {
+  "mc": {
+   "voice": "SOYHLrjzK2X1ezoPC6cr",
+   "note": "MC Packet — Harry: a fierce, hyped ring announcer"
+  },
+  "phish": {
+   "voice": "IKne3meq5aSn9XLyUdCD",
+   "note": "Phish — Charlie: smooth, casual, a con man"
+  },
+  "trojan": {
+   "voice": "pqHfZKP75CvOlQylNhV4",
+   "note": "Trojan — Bill: old and gravelly, bronze plate"
+  },
+  "ransom": {
+   "voice": "cjVigY5qzO86Huf0OWal",
+   "note": "Ransom — Eric: a slick extortionist"
+  },
+  "root": {
+   "voice": "N2lVS1w4EtoT3dr4eOWO",
+   "note": "Root, the champion — Callum: intense, husky"
+  },
+  "elder": {
+   "voice": "JBFqnCBsd6RMkjVDRZzb",
+   "note": "Elder Ram — George: a warm old storyteller"
+  },
+  "vixen": {
+   "voice": "Xb7hH8MSUJpSbSDYk0k2",
+   "note": "Vixen, the fox captain — Alice: clear, sly British"
+  },
+  "fang": {
+   "voice": "pqHfZKP75CvOlQylNhV4",
+   "note": "Iron Fang, the pack bruiser — Bill: gravelly"
+  },
+  "reynard": {
+   "voice": "onwK4e9ZLuTAKqWW03F9",
+   "note": "Reynard, the fox chief — Daniel: posh, authoritative"
+  },
+  "bigbad": {
+   "voice": "N2lVS1w4EtoT3dr4eOWO",
+   "note": "The Big Bad Wolf — Callum: intense, husky"
+  },
+  "adam": {
+   "voice": "TX3LPaxmHKxFdv7VOQHJ",
+   "note": "Adam, the Broadcaster — Liam: young, energetic"
+  },
+  "ana": {
+   "voice": "cgSgspJ2msm6clMCkdW9",
+   "note": "Ana, the Influencer — Jessica: young, playful"
+  },
+  "brian": {
+   "voice": "iP95p4xoKVk53GoZ742B",
+   "note": "Brian, the Roadie — Chris: down-to-earth"
+  },
+  "alex": {
+   "voice": "bIHbv24MWmeRgasZH58o",
+   "note": "Alex, the Storm Chaser (sheep) — Will: friendly"
+  },
+  "ben": {
+   "voice": "SAz9YHcvj6GT2YYXdXww",
+   "note": "Ben, the Orchard Raider (monkey) — River: relaxed"
+  },
+  "bryan": {
+   "voice": "CwhRBWXzGAHq8TQ4Fs17",
+   "note": "Bryan, the Road Block (pig) — Roger: confident, gruff"
+  },
+  "clara": {
+   "voice": "pFZP5JQG7iQjIQuC4Bku",
+   "note": "Clara, the Hearth Witch (cat) — Lily: velvety British"
+  },
+  "connector": {
+   "voice": "FGY2WhTYpPnrIDTdsKH5",
+   "note": "Connector, the jelly — Laura: quirky, enthusiastic"
+  },
+  "anonymous": {
+   "voice": "EXAVITQu4vr4xnSDxMaL",
+   "note": "Anonymous, the masked jelly — Sarah: soft, even"
+  },
+  "narrator": {
+   "voice": "nPczCjzI2devNBz1zQrb",
+   "note": "Narrator — Brian: deep, resonant"
+  }
+ },
+ "lines": {
+  "39248579": {
+   "who": "brian",
+   "text": "Coming through! The cart doesn't brake for wolves.",
+   "file": "brian/coming-through-the-cart-doesn-t-brake-fo-39248579.mp3",
+   "ms": 2900,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "43375955": {
+   "who": "narrator",
+   "text": "Ana takes one selfie with the flock — forty sheep, one sailor dress, a peace sign — and posts it from the meadow.",
+   "file": "narrator/ana-takes-one-selfie-with-the-flock-fort-43375955.mp3",
+   "ms": 7549,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "58391327": {
+   "who": "anonymous",
+   "text": "Pffff… we were never here.",
+   "file": "anonymous/pffff-we-were-never-here-58391327.mp3",
+   "ms": 1776,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "60313416": {
+   "who": "narrator",
+   "text": "Clara sweeps the last embers off the meadow, hangs the broom by the hearth and curls up on the warm stones under it.",
+   "file": "narrator/clara-sweeps-the-last-embers-off-the-mea-60313416.mp3",
+   "ms": 6060,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "ebc5c68a": {
+   "who": "mc",
+   "text": "Welcome to the Hacker Championship! A thousand challengers, four top hackers — one title.",
+   "file": "mc/welcome-to-the-hacker-championship-a-tho-ebc5c68a.mp3",
+   "ms": 7210,
+   "ch": "championship",
+   "for": null
+  },
+  "2164755b": {
+   "who": "adam",
+   "text": "Mic check. One, two — you're all getting dropped.",
+   "file": "adam/mic-check-one-two-you-re-all-getting-dro-2164755b.mp3",
+   "ms": 3553,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "7add765d": {
+   "who": "ana",
+   "text": "Smile! You're about to trend for all the wrong reasons.",
+   "file": "ana/smile-you-re-about-to-trend-for-all-the-7add765d.mp3",
+   "ms": 3396,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "bec84576": {
+   "who": "brian",
+   "text": "Coming through! Mind the cart — or don't.",
+   "file": "brian/coming-through-mind-the-cart-or-don-t-bec84576.mp3",
+   "ms": 2194,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "a324b073": {
+   "who": "alex",
+   "text": "Forecast for today: heavy hackers, with a strong chance of umbrella.",
+   "file": "alex/forecast-for-today-heavy-hackers-with-a-a324b073.mp3",
+   "ms": 5068,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "07dec9a3": {
+   "who": "ben",
+   "text": "Fresh fruit, free delivery. Mind the peel.",
+   "file": "ben/fresh-fruit-free-delivery-mind-the-peel-07dec9a3.mp3",
+   "ms": 2429,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "29e8465c": {
+   "who": "bryan",
+   "text": "Road's closed, boys. Read the sign.",
+   "file": "bryan/road-s-closed-boys-read-the-sign-29e8465c.mp3",
+   "ms": 2142,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "d0e76a83": {
+   "who": "clara",
+   "text": "Double, double, hackers in trouble. Fire burn — you get the idea.",
+   "file": "clara/double-double-hackers-in-trouble-fire-bu-d0e76a83.mp3",
+   "ms": 4441,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "381251db": {
+   "who": "connector",
+   "text": "Connecting… connection established. Bloop!",
+   "file": "connector/connecting-connection-established-bloop-381251db.mp3",
+   "ms": 3082,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "5af37efb": {
+   "who": "anonymous",
+   "text": "We are Anonymous. We are Legion. Expect us. Bloop!",
+   "file": "anonymous/we-are-anonymous-we-are-legion-expect-us-5af37efb.mp3",
+   "ms": 3213,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "3018752e": {
+   "who": "mc",
+   "text": "Shutter A stays down until the round's top hacker is out!",
+   "file": "mc/shutter-a-stays-down-until-the-round-s-t-3018752e.mp3",
+   "ms": 3553,
+   "ch": "championship",
+   "for": null
+  },
+  "987341ad": {
+   "who": "phish",
+   "text": "Nice account you have there. Mind if I borrow it?",
+   "file": "phish/nice-account-you-have-there-mind-if-i-bo-987341ad.mp3",
+   "ms": 3187,
+   "ch": "championship",
+   "for": null
+  },
+  "27e0310e": {
+   "who": "phish",
+   "text": "I… I got phished?!",
+   "file": "phish/i-i-got-phished-27e0310e.mp3",
+   "ms": 1698,
+   "ch": "championship",
+   "for": null
+  },
+  "d358cfa6": {
+   "who": "adam",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "adam/one-down-keep-moving-we-ve-got-your-back-d358cfa6.mp3",
+   "ms": 2194,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "50cf5071": {
+   "who": "ana",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "ana/one-down-keep-moving-we-ve-got-your-back-50cf5071.mp3",
+   "ms": 2377,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "3f77b21b": {
+   "who": "brian",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "brian/one-down-keep-moving-we-ve-got-your-back-3f77b21b.mp3",
+   "ms": 2064,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "12ab3c31": {
+   "who": "alex",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "alex/one-down-keep-moving-we-ve-got-your-back-12ab3c31.mp3",
+   "ms": 2142,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "dbbd693e": {
+   "who": "ben",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "ben/one-down-keep-moving-we-ve-got-your-back-dbbd693e.mp3",
+   "ms": 2246,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "d13cd78b": {
+   "who": "bryan",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "bryan/one-down-keep-moving-we-ve-got-your-back-d13cd78b.mp3",
+   "ms": 2377,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "82b1b830": {
+   "who": "clara",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "clara/one-down-keep-moving-we-ve-got-your-back-82b1b830.mp3",
+   "ms": 2429,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "41a50698": {
+   "who": "connector",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "connector/one-down-keep-moving-we-ve-got-your-back-41a50698.mp3",
+   "ms": 2351,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "71545ba2": {
+   "who": "anonymous",
+   "text": "One down. Keep moving, we've got your back!",
+   "file": "anonymous/one-down-keep-moving-we-ve-got-your-back-71545ba2.mp3",
+   "ms": 2351,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "0c0d8e0f": {
+   "who": "mc",
+   "text": "Shutter B stays down until the round's top hacker is out!",
+   "file": "mc/shutter-b-stays-down-until-the-round-s-t-0c0d8e0f.mp3",
+   "ms": 3213,
+   "ch": "championship",
+   "for": null
+  },
+  "b7384902": {
+   "who": "mc",
+   "text": "Round two! The sysops don't like visitors in their aisles.",
+   "file": "mc/round-two-the-sysops-don-t-like-visitors-b7384902.mp3",
+   "ms": 3553,
+   "ch": "championship",
+   "for": null
+  },
+  "f2f067e9": {
+   "who": "trojan",
+   "text": "You let me in yourself. Everybody does.",
+   "file": "trojan/you-let-me-in-yourself-everybody-does-f2f067e9.mp3",
+   "ms": 2560,
+   "ch": "championship",
+   "for": null
+  },
+  "6dbb7ff2": {
+   "who": "trojan",
+   "text": "The gift… was supposed to be for you…",
+   "file": "trojan/the-gift-was-supposed-to-be-for-you-6dbb7ff2.mp3",
+   "ms": 2769,
+   "ch": "championship",
+   "for": null
+  },
+  "15d6154e": {
+   "who": "mc",
+   "text": "The Mainframe Core! Semi-final — the floor is yours.",
+   "file": "mc/the-mainframe-core-semi-final-the-floor-15d6154e.mp3",
+   "ms": 3918,
+   "ch": "championship",
+   "for": null
+  },
+  "1f04cd49": {
+   "who": "ransom",
+   "text": "Your health bar is encrypted. Pay up, or lose it.",
+   "file": "ransom/your-health-bar-is-encrypted-pay-up-or-l-1f04cd49.mp3",
+   "ms": 2795,
+   "ch": "championship",
+   "for": null
+  },
+  "dc41e121": {
+   "who": "ransom",
+   "text": "No refunds…",
+   "file": "ransom/no-refunds-dc41e121.mp3",
+   "ms": 993,
+   "ch": "championship",
+   "for": null
+  },
+  "4f3b4acb": {
+   "who": "mc",
+   "text": "The final! A thousand knock-outs calls out the champion.",
+   "file": "mc/the-final-a-thousand-knock-outs-calls-ou-4f3b4acb.mp3",
+   "ms": 3448,
+   "ch": "championship",
+   "for": null
+  },
+  "26f732ba": {
+   "who": "root",
+   "text": "A thousand of mine, and you are still standing. I have root access. You have a guest account.",
+   "file": "root/a-thousand-of-mine-and-you-are-still-sta-26f732ba.mp3",
+   "ms": 6531,
+   "ch": "championship",
+   "for": null
+  },
+  "b386b722": {
+   "who": "root",
+   "text": "Access… denied…",
+   "file": "root/access-denied-b386b722.mp3",
+   "ms": 2064,
+   "ch": "championship",
+   "for": null
+  },
+  "8ce12e81": {
+   "who": "mc",
+   "text": "We have a new champion of the Hacker Championship!",
+   "file": "mc/we-have-a-new-champion-of-the-hacker-cha-8ce12e81.mp3",
+   "ms": 2560,
+   "ch": "championship",
+   "for": null
+  },
+  "fdc9ffce": {
+   "who": "phish",
+   "text": "You clicked the link. They always click the link.",
+   "file": "phish/you-clicked-the-link-they-always-click-t-fdc9ffce.mp3",
+   "ms": 3187,
+   "ch": "championship",
+   "for": null
+  },
+  "95116f9d": {
+   "who": "trojan",
+   "text": "Feel the payload!",
+   "file": "trojan/feel-the-payload-95116f9d.mp3",
+   "ms": 1280,
+   "ch": "championship",
+   "for": null
+  },
+  "dd0bfa6a": {
+   "who": "trojan",
+   "text": "Open the gates! Everybody in!",
+   "file": "trojan/open-the-gates-everybody-in-dd0bfa6a.mp3",
+   "ms": 1933,
+   "ch": "championship",
+   "for": null
+  },
+  "47950ba1": {
+   "who": "ransom",
+   "text": "The price just doubled!",
+   "file": "ransom/the-price-just-doubled-47950ba1.mp3",
+   "ms": 1306,
+   "ch": "championship",
+   "for": null
+  },
+  "b47b44d1": {
+   "who": "root",
+   "text": "fork(); fork(); fork();",
+   "file": "root/fork-fork-fork-b47b44d1.mp3",
+   "ms": 2142,
+   "ch": "championship",
+   "for": null
+  },
+  "241bc1e0": {
+   "who": "root",
+   "text": "Lights out.",
+   "file": "root/lights-out-241bc1e0.mp3",
+   "ms": 1123,
+   "ch": "championship",
+   "for": null
+  },
+  "537f5559": {
+   "who": "root",
+   "text": "Enough! sudo end this!",
+   "file": "root/enough-sudo-end-this-537f5559.mp3",
+   "ms": 2664,
+   "ch": "championship",
+   "for": null
+  },
+  "d30bd481": {
+   "who": "adam",
+   "text": "And that's the show. Thank you, warehouse!",
+   "file": "adam/and-that-s-the-show-thank-you-warehouse-d30bd481.mp3",
+   "ms": 2482,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "63f22d39": {
+   "who": "narrator",
+   "text": "Adam signs off the broadcast with the champion's belt over his shoulder and the drone circling the scoreboard.",
+   "file": "narrator/adam-signs-off-the-broadcast-with-the-ch-63f22d39.mp3",
+   "ms": 6478,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "b86b927b": {
+   "who": "narrator",
+   "text": "The whole warehouse heard it: the kid with the microphone is the best hacker in the building.",
+   "file": "narrator/the-whole-warehouse-heard-it-the-kid-wit-b86b927b.mp3",
+   "ms": 4989,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "191b0a3d": {
+   "who": "narrator",
+   "text": "Adam is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/adam-is-knocked-out-of-the-bracket-the-c-191b0a3d.mp3",
+   "ms": 3788,
+   "ch": "championship",
+   "for": "adam"
+  },
+  "a4bdafac": {
+   "who": "ana",
+   "text": "Posted. Shared. Deleted. Next!",
+   "file": "ana/posted-shared-deleted-next-a4bdafac.mp3",
+   "ms": 3265,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "28ac3ff7": {
+   "who": "narrator",
+   "text": "Ana posts one photo — the scoreboard, the belt, a peace sign — and the feed melts.",
+   "file": "narrator/ana-posts-one-photo-the-scoreboard-the-b-28ac3ff7.mp3",
+   "ms": 5904,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "3d025ee6": {
+   "who": "narrator",
+   "text": "A thousand challengers, four top hackers, one girl in a sailor dress. It goes viral before she reaches the door.",
+   "file": "narrator/a-thousand-challengers-four-top-hackers-3d025ee6.mp3",
+   "ms": 7314,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "cde0ad9a": {
+   "who": "narrator",
+   "text": "Ana is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/ana-is-knocked-out-of-the-bracket-the-ch-cde0ad9a.mp3",
+   "ms": 3735,
+   "ch": "championship",
+   "for": "ana"
+  },
+  "7031ed7b": {
+   "who": "brian",
+   "text": "Delivery complete. Sign here.",
+   "file": "brian/delivery-complete-sign-here-7031ed7b.mp3",
+   "ms": 1593,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "852204a5": {
+   "who": "narrator",
+   "text": "Brian loads the champion's belt into the cart with the rest of the gear, takes one last picture and pushes off.",
+   "file": "narrator/brian-loads-the-champion-s-belt-into-the-852204a5.mp3",
+   "ms": 6661,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "12db3ebe": {
+   "who": "narrator",
+   "text": "Nobody stands in the way of the cart on the way out.",
+   "file": "narrator/nobody-stands-in-the-way-of-the-cart-on-12db3ebe.mp3",
+   "ms": 2847,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "21deb200": {
+   "who": "narrator",
+   "text": "Brian is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/brian-is-knocked-out-of-the-bracket-the-21deb200.mp3",
+   "ms": 3866,
+   "ch": "championship",
+   "for": "brian"
+  },
+  "e07fb443": {
+   "who": "alex",
+   "text": "And that clears the sky.",
+   "file": "alex/and-that-clears-the-sky-e07fb443.mp3",
+   "ms": 1646,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "33dd6fae": {
+   "who": "narrator",
+   "text": "Alex opens the umbrella over the champion's belt, checks the sky through his goggles, and finds a roof. He keeps it open anyway.",
+   "file": "narrator/alex-opens-the-umbrella-over-the-champio-33dd6fae.mp3",
+   "ms": 7549,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "ca369710": {
+   "who": "narrator",
+   "text": "The forecast for the warehouse: clear, with a sheep on top of the bracket.",
+   "file": "narrator/the-forecast-for-the-warehouse-clear-wit-ca369710.mp3",
+   "ms": 4754,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "2c2dbfdc": {
+   "who": "narrator",
+   "text": "Alex is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/alex-is-knocked-out-of-the-bracket-the-c-2c2dbfdc.mp3",
+   "ms": 4023,
+   "ch": "championship",
+   "for": "alex"
+  },
+  "dadea0af": {
+   "who": "ben",
+   "text": "Ook. That was the small one.",
+   "file": "ben/ook-that-was-the-small-one-dadea0af.mp3",
+   "ms": 1646,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "efca0fb0": {
+   "who": "narrator",
+   "text": "Ben hangs the champion's belt from the rafters with one arrow, swings up after it and eats a banana on the beam while the hall looks up.",
+   "file": "narrator/ben-hangs-the-champion-s-belt-from-the-r-efca0fb0.mp3",
+   "ms": 7262,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "4b6bd0cc": {
+   "who": "narrator",
+   "text": "The gorilla is not mentioned in the official record. Everyone who was there mentions nothing else.",
+   "file": "narrator/the-gorilla-is-not-mentioned-in-the-offi-4b6bd0cc.mp3",
+   "ms": 5460,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "1d074bf3": {
+   "who": "narrator",
+   "text": "Ben is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/ben-is-knocked-out-of-the-bracket-the-ch-1d074bf3.mp3",
+   "ms": 3683,
+   "ch": "championship",
+   "for": "ben"
+  },
+  "43b81a57": {
+   "who": "bryan",
+   "text": "Detour's that way. Mind how you go.",
+   "file": "bryan/detour-s-that-way-mind-how-you-go-43b81a57.mp3",
+   "ms": 2612,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "93b8a971": {
+   "who": "narrator",
+   "text": "Bryan stands the STOP sign beside the scoreboard, hangs the champion's belt on it, and sets a cone on either side.",
+   "file": "narrator/bryan-stands-the-stop-sign-beside-the-sc-93b8a971.mp3",
+   "ms": 6609,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "ec3c973d": {
+   "who": "narrator",
+   "text": "The road to the title is closed until further notice.",
+   "file": "narrator/the-road-to-the-title-is-closed-until-fu-ec3c973d.mp3",
+   "ms": 2978,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "4ce4fb50": {
+   "who": "narrator",
+   "text": "Bryan is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/bryan-is-knocked-out-of-the-bracket-the-4ce4fb50.mp3",
+   "ms": 4389,
+   "ch": "championship",
+   "for": "bryan"
+  },
+  "ec45a1c0": {
+   "who": "clara",
+   "text": "Happy Halloween. Now shoo.",
+   "file": "clara/happy-halloween-now-shoo-ec45a1c0.mp3",
+   "ms": 1829,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "1135e31e": {
+   "who": "narrator",
+   "text": "Clara flies one lap of the hall on the burning broom with the champion's belt for a scarf, the bats in formation behind her.",
+   "file": "narrator/clara-flies-one-lap-of-the-hall-on-the-b-1135e31e.mp3",
+   "ms": 6975,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "d0eeeb8e": {
+   "who": "narrator",
+   "text": "Nobody asks whether witchcraft is within the rules. Nobody dares.",
+   "file": "narrator/nobody-asks-whether-witchcraft-is-within-d0eeeb8e.mp3",
+   "ms": 3631,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "f8621ef5": {
+   "who": "narrator",
+   "text": "Clara is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/clara-is-knocked-out-of-the-bracket-the-f8621ef5.mp3",
+   "ms": 3918,
+   "ch": "championship",
+   "for": "clara"
+  },
+  "f54088c9": {
+   "who": "connector",
+   "text": "Pffff… back to pocket size.",
+   "file": "connector/pffff-back-to-pocket-size-f54088c9.mp3",
+   "ms": 1829,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "fe394013": {
+   "who": "narrator",
+   "text": "Connector swallows the champion's belt, thinks about it, and hands it back slightly sticky.",
+   "file": "narrator/connector-swallows-the-champion-s-belt-t-fe394013.mp3",
+   "ms": 4937,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "13ad8559": {
+   "who": "narrator",
+   "text": "Nobody knows what it is. Everybody knows who won.",
+   "file": "narrator/nobody-knows-what-it-is-everybody-knows-13ad8559.mp3",
+   "ms": 2978,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "be5f8e75": {
+   "who": "narrator",
+   "text": "Connector is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/connector-is-knocked-out-of-the-bracket-be5f8e75.mp3",
+   "ms": 4206,
+   "ch": "championship",
+   "for": "connector"
+  },
+  "391313f9": {
+   "who": "narrator",
+   "text": "The champion's belt is engraved to \"Anonymous\". The mask nods once, bounces out through the loading dock and is gone.",
+   "file": "narrator/the-champion-s-belt-is-engraved-to-anony-391313f9.mp3",
+   "ms": 6949,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "178b710d": {
+   "who": "narrator",
+   "text": "Nobody knows who won. Everybody suspects the jelly.",
+   "file": "narrator/nobody-knows-who-won-everybody-suspects-178b710d.mp3",
+   "ms": 3213,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "73ede6db": {
+   "who": "narrator",
+   "text": "Anonymous is knocked out of the bracket… the champion keeps the title.",
+   "file": "narrator/anonymous-is-knocked-out-of-the-bracket-73ede6db.mp3",
+   "ms": 4206,
+   "ch": "championship",
+   "for": "anonymous"
+  },
+  "a4b7a7d2": {
+   "who": "elder",
+   "text": "They are in the meadow! A thousand wolves and foxes, four leaders — and one village behind you.",
+   "file": "elder/they-are-in-the-meadow-a-thousand-wolves-a4b7a7d2.mp3",
+   "ms": 6531,
+   "ch": "defense",
+   "for": null
+  },
+  "47eda81a": {
+   "who": "adam",
+   "text": "Mic check. One, two — wolves, this is your last call.",
+   "file": "adam/mic-check-one-two-wolves-this-is-your-la-47eda81a.mp3",
+   "ms": 3814,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "2d334ac4": {
+   "who": "ana",
+   "text": "Wolves and foxes in one shot? This post is going to break the feed.",
+   "file": "ana/wolves-and-foxes-in-one-shot-this-post-i-2d334ac4.mp3",
+   "ms": 4519,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "fba55ef8": {
+   "who": "alex",
+   "text": "Forecast for today: heavy wolves, with a strong chance of umbrella.",
+   "file": "alex/forecast-for-today-heavy-wolves-with-a-s-fba55ef8.mp3",
+   "ms": 4937,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "2c68db83": {
+   "who": "ben",
+   "text": "Nobody raids the orchard but me. Back off, wolves.",
+   "file": "ben/nobody-raids-the-orchard-but-me-back-off-2c68db83.mp3",
+   "ms": 2952,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "40079f6a": {
+   "who": "bryan",
+   "text": "Valley road's closed, wolves. Read the sign.",
+   "file": "bryan/valley-road-s-closed-wolves-read-the-sig-40079f6a.mp3",
+   "ms": 2717,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "3dcb5c90": {
+   "who": "clara",
+   "text": "Double, double, wolves in trouble. Fire burn — you get the idea.",
+   "file": "clara/double-double-wolves-in-trouble-fire-bur-3dcb5c90.mp3",
+   "ms": 4389,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "4fe0e873": {
+   "who": "connector",
+   "text": "Connecting… village found. Wolves found. Bloop!",
+   "file": "connector/connecting-village-found-wolves-found-bl-4fe0e873.mp3",
+   "ms": 3500,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "f1d3f584": {
+   "who": "anonymous",
+   "text": "We are Anonymous. We do not forgive wolves. Bloop!",
+   "file": "anonymous/we-are-anonymous-we-do-not-forgive-wolve-f1d3f584.mp3",
+   "ms": 3605,
+   "ch": "defense",
+   "for": "anonymous"
+  },
+  "a83dbf1d": {
+   "who": "elder",
+   "text": "The barricade holds until the leader of this wave is beaten!",
+   "file": "elder/the-barricade-holds-until-the-leader-of-a83dbf1d.mp3",
+   "ms": 3370,
+   "ch": "defense",
+   "for": null
+  },
+  "f4ed6f4b": {
+   "who": "vixen",
+   "text": "What a pretty little village. The pack will love it — step aside, dear.",
+   "file": "vixen/what-a-pretty-little-village-the-pack-wi-f4ed6f4b.mp3",
+   "ms": 4754,
+   "ch": "defense",
+   "for": null
+  },
+  "341f7ccb": {
+   "who": "vixen",
+   "text": "Outfoxed… by that?!",
+   "file": "vixen/outfoxed-by-that-341f7ccb.mp3",
+   "ms": 1776,
+   "ch": "defense",
+   "for": null
+  },
+  "d28621bc": {
+   "who": "adam",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "adam/one-leader-down-push-them-back-the-flock-d28621bc.mp3",
+   "ms": 3631,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "9cd980b5": {
+   "who": "ana",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "ana/one-leader-down-push-them-back-the-flock-9cd980b5.mp3",
+   "ms": 3788,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "7223acdb": {
+   "who": "brian",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "brian/one-leader-down-push-them-back-the-flock-7223acdb.mp3",
+   "ms": 3187,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "0292f375": {
+   "who": "alex",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "alex/one-leader-down-push-them-back-the-flock-0292f375.mp3",
+   "ms": 3735,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "14d3a714": {
+   "who": "ben",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "ben/one-leader-down-push-them-back-the-flock-14d3a714.mp3",
+   "ms": 3370,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "bdaa812b": {
+   "who": "bryan",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "bryan/one-leader-down-push-them-back-the-flock-bdaa812b.mp3",
+   "ms": 3788,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "2fa8b98a": {
+   "who": "clara",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "clara/one-leader-down-push-them-back-the-flock-2fa8b98a.mp3",
+   "ms": 3788,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "3c8eb652": {
+   "who": "connector",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "connector/one-leader-down-push-them-back-the-flock-3c8eb652.mp3",
+   "ms": 3605,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "b8f14898": {
+   "who": "anonymous",
+   "text": "One leader down. Push them back — the flock is right behind you!",
+   "file": "anonymous/one-leader-down-push-them-back-the-flock-b8f14898.mp3",
+   "ms": 3553,
+   "ch": "defense",
+   "for": "anonymous"
+  },
+  "3fc35181": {
+   "who": "elder",
+   "text": "The second barricade holds until the leader of this wave is beaten!",
+   "file": "elder/the-second-barricade-holds-until-the-lea-3fc35181.mp3",
+   "ms": 3866,
+   "ch": "defense",
+   "for": null
+  },
+  "05edf14e": {
+   "who": "elder",
+   "text": "The woods are crawling with the pack. Mind the alphas — they hunt in pairs.",
+   "file": "elder/the-woods-are-crawling-with-the-pack-min-05edf14e.mp3",
+   "ms": 4650,
+   "ch": "defense",
+   "for": null
+  },
+  "dac7c58e": {
+   "who": "fang",
+   "text": "Little pigs, little sheep… I huff. I puff. I flatten.",
+   "file": "fang/little-pigs-little-sheep-i-huff-i-puff-i-dac7c58e.mp3",
+   "ms": 5407,
+   "ch": "defense",
+   "for": null
+  },
+  "ca0da408": {
+   "who": "fang",
+   "text": "The boss… will chew you up…",
+   "file": "fang/the-boss-will-chew-you-up-ca0da408.mp3",
+   "ms": 2612,
+   "ch": "defense",
+   "for": null
+  },
+  "61c99dea": {
+   "who": "elder",
+   "text": "Their war camp! This was the prettiest clearing in the forest. Make them sorry.",
+   "file": "elder/their-war-camp-this-was-the-prettiest-cl-61c99dea.mp3",
+   "ms": 5355,
+   "ch": "defense",
+   "for": null
+  },
+  "a7e9782f": {
+   "who": "reynard",
+   "text": "An alliance is an investment, and you are costing me. Catapults — loose!",
+   "file": "reynard/an-alliance-is-an-investment-and-you-are-a7e9782f.mp3",
+   "ms": 5538,
+   "ch": "defense",
+   "for": null
+  },
+  "9d309307": {
+   "who": "reynard",
+   "text": "The alliance is… dissolved.",
+   "file": "reynard/the-alliance-is-dissolved-9d309307.mp3",
+   "ms": 2534,
+   "ch": "defense",
+   "for": null
+  },
+  "ca914914": {
+   "who": "elder",
+   "text": "The last of them! A thousand down brings out the boss wolf himself.",
+   "file": "elder/the-last-of-them-a-thousand-down-brings-ca914914.mp3",
+   "ms": 4049,
+   "ch": "defense",
+   "for": null
+  },
+  "6ee841d7": {
+   "who": "bigbad",
+   "text": "A thousand of mine, and you still stand between me and my supper. Not for long.",
+   "file": "bigbad/a-thousand-of-mine-and-you-still-stand-b-6ee841d7.mp3",
+   "ms": 5956,
+   "ch": "defense",
+   "for": null
+  },
+  "a14ec8a7": {
+   "who": "bigbad",
+   "text": "Not… by the hair… of my chinny chin chin…",
+   "file": "bigbad/not-by-the-hair-of-my-chinny-chin-chin-a14ec8a7.mp3",
+   "ms": 4806,
+   "ch": "defense",
+   "for": null
+  },
+  "17673f6e": {
+   "who": "elder",
+   "text": "They are running! Ring the bell — the village is saved!",
+   "file": "elder/they-are-running-ring-the-bell-the-villa-17673f6e.mp3",
+   "ms": 3265,
+   "ch": "defense",
+   "for": null
+  },
+  "f701e263": {
+   "who": "vixen",
+   "text": "Everyone steps in the snare sooner or later.",
+   "file": "vixen/everyone-steps-in-the-snare-sooner-or-la-f701e263.mp3",
+   "ms": 2612,
+   "ch": "defense",
+   "for": null
+  },
+  "43ff908a": {
+   "who": "fang",
+   "text": "Feel the ground shake!",
+   "file": "fang/feel-the-ground-shake-43ff908a.mp3",
+   "ms": 1698,
+   "ch": "defense",
+   "for": null
+  },
+  "5607d9ef": {
+   "who": "fang",
+   "text": "Pack! To me! Blow the house down!",
+   "file": "fang/pack-to-me-blow-the-house-down-5607d9ef.mp3",
+   "ms": 3187,
+   "ch": "defense",
+   "for": null
+  },
+  "afbcdacb": {
+   "who": "reynard",
+   "text": "Everything we have left — loose it all!",
+   "file": "reynard/everything-we-have-left-loose-it-all-afbcdacb.mp3",
+   "ms": 2534,
+   "ch": "defense",
+   "for": null
+  },
+  "4450c656": {
+   "who": "bigbad",
+   "text": "Awoooo! Pack — tear it apart!",
+   "file": "bigbad/awoooo-pack-tear-it-apart-4450c656.mp3",
+   "ms": 3082,
+   "ch": "defense",
+   "for": null
+  },
+  "13bc97ea": {
+   "who": "bigbad",
+   "text": "My, how dark it gets… the better to eat you in.",
+   "file": "bigbad/my-how-dark-it-gets-the-better-to-eat-yo-13bc97ea.mp3",
+   "ms": 4232,
+   "ch": "defense",
+   "for": null
+  },
+  "1fcb12b2": {
+   "who": "bigbad",
+   "text": "ENOUGH! I'll huff, and I'll puff, and I'll END you!",
+   "file": "bigbad/enough-i-ll-huff-and-i-ll-puff-and-i-ll-1fcb12b2.mp3",
+   "ms": 4702,
+   "ch": "defense",
+   "for": null
+  },
+  "11f10a05": {
+   "who": "adam",
+   "text": "And that's the show. Thank you, Sheep Village!",
+   "file": "adam/and-that-s-the-show-thank-you-sheep-vill-11f10a05.mp3",
+   "ms": 2900,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "fee0c18c": {
+   "who": "narrator",
+   "text": "Adam hands the microphone to the Elder Ram for the victory speech and lets the drone film the whole flock cheering.",
+   "file": "narrator/adam-hands-the-microphone-to-the-elder-r-fee0c18c.mp3",
+   "ms": 5773,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "9d1c14f5": {
+   "who": "narrator",
+   "text": "The broadcast from Sheep Village breaks every record the warehouse ever set.",
+   "file": "narrator/the-broadcast-from-sheep-village-breaks-9d1c14f5.mp3",
+   "ms": 4650,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "380f0f0f": {
+   "who": "narrator",
+   "text": "Adam goes down… and the pack marches on the village.",
+   "file": "narrator/adam-goes-down-and-the-pack-marches-on-t-380f0f0f.mp3",
+   "ms": 3370,
+   "ch": "defense",
+   "for": "adam"
+  },
+  "8c3b3c28": {
+   "who": "ana",
+   "text": "Posted. Tagged. One pack, unfollowed. Next!",
+   "file": "ana/posted-tagged-one-pack-unfollowed-next-8c3b3c28.mp3",
+   "ms": 3553,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "6ae557ac": {
+   "who": "narrator",
+   "text": "The wolves see it too, wherever they ran to. None of them leaves a comment.",
+   "file": "narrator/the-wolves-see-it-too-wherever-they-ran-6ae557ac.mp3",
+   "ms": 4519,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "9a52b146": {
+   "who": "narrator",
+   "text": "Ana goes down… and the pack marches on the village.",
+   "file": "narrator/ana-goes-down-and-the-pack-marches-on-th-9a52b146.mp3",
+   "ms": 3448,
+   "ch": "defense",
+   "for": "ana"
+  },
+  "7a266739": {
+   "who": "brian",
+   "text": "Delivery complete. Paw print here.",
+   "file": "brian/delivery-complete-paw-print-here-7a266739.mp3",
+   "ms": 1646,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "e2946e44": {
+   "who": "narrator",
+   "text": "Brian loads the cart with wolf helmets for the village scrapyard and photographs every lamb that asks. All of them ask.",
+   "file": "narrator/brian-loads-the-cart-with-wolf-helmets-f-e2946e44.mp3",
+   "ms": 7079,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "2888a586": {
+   "who": "narrator",
+   "text": "He leaves the forest with a full memory card and a wheel that squeaks of victory.",
+   "file": "narrator/he-leaves-the-forest-with-a-full-memory-2888a586.mp3",
+   "ms": 4023,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "886e5048": {
+   "who": "narrator",
+   "text": "Brian goes down… and the pack marches on the village.",
+   "file": "narrator/brian-goes-down-and-the-pack-marches-on-886e5048.mp3",
+   "ms": 3213,
+   "ch": "defense",
+   "for": "brian"
+  },
+  "a705aabe": {
+   "who": "alex",
+   "text": "And that clears the sky over the village.",
+   "file": "alex/and-that-clears-the-sky-over-the-village-a705aabe.mp3",
+   "ms": 2116,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "32f61ddf": {
+   "who": "narrator",
+   "text": "Alex pushes the goggles up, opens the umbrella and walks home in the first rain since the wolves came.",
+   "file": "narrator/alex-pushes-the-goggles-up-opens-the-umb-32f61ddf.mp3",
+   "ms": 5277,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "bfb838e0": {
+   "who": "narrator",
+   "text": "The meadow will grow back. The story of the sheep with the umbrella will grow faster.",
+   "file": "narrator/the-meadow-will-grow-back-the-story-of-t-bfb838e0.mp3",
+   "ms": 4571,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "761e80dc": {
+   "who": "narrator",
+   "text": "Alex goes down… and the pack marches on the village.",
+   "file": "narrator/alex-goes-down-and-the-pack-marches-on-t-761e80dc.mp3",
+   "ms": 3265,
+   "ch": "defense",
+   "for": "alex"
+  },
+  "8740f70c": {
+   "who": "ben",
+   "text": "Ook. Back to the woods, pups.",
+   "file": "ben/ook-back-to-the-woods-pups-8740f70c.mp3",
+   "ms": 1646,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "cb7cae48": {
+   "who": "narrator",
+   "text": "Ben shoots one last arrow into the orchard gate as a sign, hands the lambs the rest of the quiver's fruit and climbs the tallest tree to keep watch.",
+   "file": "narrator/ben-shoots-one-last-arrow-into-the-orcha-cb7cae48.mp3",
+   "ms": 8620,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "202c60b6": {
+   "who": "narrator",
+   "text": "The wolves tell their pups about the gorilla. The pups do not believe them. The lambs do.",
+   "file": "narrator/the-wolves-tell-their-pups-about-the-gor-202c60b6.mp3",
+   "ms": 5590,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "e708ce69": {
+   "who": "narrator",
+   "text": "Ben goes down… and the pack marches on the village.",
+   "file": "narrator/ben-goes-down-and-the-pack-marches-on-th-e708ce69.mp3",
+   "ms": 3370,
+   "ch": "defense",
+   "for": "ben"
+  },
+  "cfc74976": {
+   "who": "bryan",
+   "text": "Detour's back to the hills. Mind how you go.",
+   "file": "bryan/detour-s-back-to-the-hills-mind-how-you-cfc74976.mp3",
+   "ms": 2795,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "c2f805dd": {
+   "who": "narrator",
+   "text": "Bryan plants the stop sign at the village gate, straightens his helmet and takes the first watch himself.",
+   "file": "narrator/bryan-plants-the-stop-sign-at-the-villag-c2f805dd.mp3",
+   "ms": 5721,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "adddbc0b": {
+   "who": "narrator",
+   "text": "No wolf has come down the valley road since. The sign says STOP, and so does the pig behind it.",
+   "file": "narrator/no-wolf-has-come-down-the-valley-road-si-adddbc0b.mp3",
+   "ms": 5538,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "4a29f6d8": {
+   "who": "narrator",
+   "text": "Bryan goes down… and the pack marches on the village.",
+   "file": "narrator/bryan-goes-down-and-the-pack-marches-on-4a29f6d8.mp3",
+   "ms": 3135,
+   "ch": "defense",
+   "for": "bryan"
+  },
+  "0aae0934": {
+   "who": "clara",
+   "text": "Happy Halloween, wolves. Now shoo.",
+   "file": "clara/happy-halloween-wolves-now-shoo-0aae0934.mp3",
+   "ms": 2194,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "6bc16ff2": {
+   "who": "narrator",
+   "text": "The lambs say the cat is a witch. The wolves, wherever they ran to, say so too.",
+   "file": "narrator/the-lambs-say-the-cat-is-a-witch-the-wol-6bc16ff2.mp3",
+   "ms": 5277,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "706ca627": {
+   "who": "narrator",
+   "text": "Clara goes down… and the pack marches on the village.",
+   "file": "narrator/clara-goes-down-and-the-pack-marches-on-706ca627.mp3",
+   "ms": 3396,
+   "ch": "defense",
+   "for": "clara"
+  },
+  "c896c570": {
+   "who": "connector",
+   "text": "Pffff… back to pocket size. Wolves all gone?",
+   "file": "connector/pffff-back-to-pocket-size-wolves-all-gon-c896c570.mp3",
+   "ms": 2900,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "c8e56108": {
+   "who": "narrator",
+   "text": "Connector shrinks back to pocket size, burps out one wolf helmet and bounces off toward the village.",
+   "file": "narrator/connector-shrinks-back-to-pocket-size-bu-c8e56108.mp3",
+   "ms": 5773,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "30393d6e": {
+   "who": "narrator",
+   "text": "Nobody knows what it is or where it came from. The lambs have already built it a bed.",
+   "file": "narrator/nobody-knows-what-it-is-or-where-it-came-30393d6e.mp3",
+   "ms": 5120,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "662b30a7": {
+   "who": "narrator",
+   "text": "Connector goes down… and the pack marches on the village.",
+   "file": "narrator/connector-goes-down-and-the-pack-marches-662b30a7.mp3",
+   "ms": 3500,
+   "ch": "defense",
+   "for": "connector"
+  },
+  "b2c67d25": {
+   "who": "anonymous",
+   "text": "Pffff… the wolves saw nothing.",
+   "file": "anonymous/pffff-the-wolves-saw-nothing-b2c67d25.mp3",
+   "ms": 2142,
+   "ch": "defense",
+   "for": "anonymous"
+  },
+  "513d32ec": {
+   "who": "narrator",
+   "text": "The masked jelly leaves before anyone can thank it. By morning every lamb in the village has drawn a moustache on a paper plate.",
+   "file": "narrator/the-masked-jelly-leaves-before-anyone-ca-513d32ec.mp3",
+   "ms": 7262,
+   "ch": "defense",
+   "for": "anonymous"
+  },
+  "14e78941": {
+   "who": "narrator",
+   "text": "The wolves never learned who beat them. The village never tells.",
+   "file": "narrator/the-wolves-never-learned-who-beat-them-t-14e78941.mp3",
+   "ms": 3788,
+   "ch": "defense",
+   "for": "anonymous"
+  },
+  "1452abf1": {
+   "who": "narrator",
+   "text": "Anonymous goes down… and the pack marches on the village.",
+   "file": "narrator/anonymous-goes-down-and-the-pack-marches-1452abf1.mp3",
+   "ms": 3605,
+   "ch": "defense",
+   "for": "anonymous"
+  }
+ }
+}

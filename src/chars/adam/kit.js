@@ -1,4 +1,4 @@
-// Edward's kit (contract: src/chars/index.js): the mic-stand moveset (moves.js, anims.js), the voxel boy and his drone
+// Adam's kit (contract: src/chars/index.js): the mic-stand moveset (moves.js, anims.js), the voxel boy and his drone
 // (model.js), SONIC BOOM (musou.js) and the effects view (view.js). Locomotion physics, dodge ghosts and roll are shared
 // (hero.js); the locomotion clips are the engine's (a mic stand carries like a spear).
 import { MOVES, AIR_CHAIN_MAX } from './moves.js';

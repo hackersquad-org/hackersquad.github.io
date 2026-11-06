@@ -49,8 +49,8 @@ import { BEN } from './ben/char.js';
 import { CONNECTOR } from './connector/char.js';
 import { ANONYMOUS } from './anonymous/char.js';
 
-// the Hacker Squad, then the guests from Sheep Village with Ben the monkey last among them, then the jelly
-const LIST = [ADAM, ANA, BRIAN, ALEX, BRYAN, CLARA, BEN, CONNECTOR];
+// the Hacker Squad, then the guests from Sheep Village with Ben the monkey among them, then the jelly
+const LIST = [ADAM, ANA, BRIAN, ALEX, BEN, BRYAN, CLARA, CONNECTOR];
 const HIDDEN = [ANONYMOUS];                                      // Connector behind the mask
 export const CHARS = Object.fromEntries([...LIST, ...HIDDEN].map((c) => [c.id, c]));
 export const CHAR_ORDER = LIST.map((c) => c.id);

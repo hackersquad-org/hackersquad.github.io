@@ -32,7 +32,7 @@ export const CONNECTOR = {
   motto: 'Plugs into anything, copies everything',
   weapon: 'Itself',
   bio: ['Nobody knows what it is: a green oval of jelly with three hairs, two big eyes, one very large mouth that never closes and two little orange balls for hands.',
-    'It copies what it sees — Edward\'s scream, Bill\'s flash — spins, hops, blows itself up a hundred times bigger, and calls three clones — blue, pink, yellow — that fight on their own.'],
+    'It copies what it sees — Adam\'s scream, Brian\'s flash — spins, hops, blows itself up a hundred times bigger, and calls three clones — blue, pink, yellow — that fight on their own.'],
   stats: { atk: 4, def: 4, speed: 4, range: 3 }, musou: { name: 'Giga Connect', desc: 'Inflates to 100×: three giant hops you steer, a spin, the belly flop. In the air: three clones for ten seconds.' }, accent: '#46e07a',
   lines: {
     intro: 'Connecting… connection established. Bloop!',

@@ -1,7 +1,7 @@
 // Which fighter's move plays what (data only; the sounds are foley.js names, audio.js plays them).
 // A kit:
 //   sw      the weapon's swing layer, on top of the air whoosh of every swing — a name, or { R, L } by striking hand
-//           (hero/moveset.js handAt: Ana's phone / laptop, Bill's cart / camera); 0 = none
+//           (hero/moveset.js handAt: Ana's phone / laptop, Brian's cart / camera); 0 = none
 //   hit     the weapon's impact layer, on top of the body impact — a name or { R, L }
 //   moves   per move id, all optional, the arrays indexed by hit window (the move's `hits`):
 //             sw   [name | 0]   this window's swing layer; 0 = no whoosh at all (a beam, a shout, a thrown thing)
@@ -121,7 +121,7 @@ export const KITS = {
     mu: { at: [[6, 'inflate', 0.8, 0.7], ...every(16, 24, 4, 'chestBeat', 0.8), ...every(30, 126, 16, 'pound', 1), ...every(150, 174, 4, 'chestBeat', 0.9), [176, 'swBow', 0.8, 0.6], [184, 'pound', 1, 0.8], [184, 'rumble', 1], ...every(188, 212, 6, 'splat', 0.4, 1.3)],
       hit: [[0, 'pound'], [150, 'chestBeat'], [184, 'pound']] },
   },
-  // a jelly: everything it does is itself — and what it copied (Edward's scream, Bill's flash) comes out higher
+  // a jelly: everything it does is itself — and what it copied (Adam's scream, Brian's flash) comes out higher
   connector: {
     sw: 'swJelly', hit: 'hitJelly',
     moves: {

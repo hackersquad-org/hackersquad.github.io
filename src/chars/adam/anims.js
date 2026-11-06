@@ -1,4 +1,4 @@
-// Edward's clips: attack clips per move id (./moves.js) through the shared clip kit (planted, baked feet), the Overclock
+// Adam's clips: attack clips per move id (./moves.js) through the shared clip kit (planted, baked feet), the Overclock
 // clip, and the engine's locomotion clips (a mic stand carries like a spear). Authoring: P() over AD (his ready stance:
 // stand across the body, mic up and forward); the stand is the rig's weapon joint (origin = rear grip, +Z along the shaft,
 // mic at 1.55 m). pole(centre, yaw, elev, roll, at) = the shaft through `centre`, `at` m from the rear grip.

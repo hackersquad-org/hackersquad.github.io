@@ -1,4 +1,4 @@
-// Bill — cart + camera moveset (data only; format: src/hero/moves.js header; `hand`: R = the cart he pushes, L = the
+// Brian — cart + camera moveset (data only; format: src/hero/moves.js header; `hand`: R = the cart he pushes, L = the
 // camera in his left hand). Heavy: slow wind-ups, wide arcs, the hardest hits in the squad; the camera's flash reaches far
 // and staggers without hurting much. All timings in 60 Hz sim frames.
 // N-string hit onsets: n1 12 → n2 37 → n3 59 (flash) → n4 83 → n5 107 → n6 134.

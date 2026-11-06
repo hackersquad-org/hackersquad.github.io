@@ -1,4 +1,4 @@
-// Bill's clips: attack clips per move id (./moves.js) through the shared clip kit (planted, baked feet), the Overclock
+// Brian's clips: attack clips per move id (./moves.js) through the shared clip kit (planted, baked feet), the Overclock
 // clip, and the engine's locomotion with his own carry (the cart pushed ahead of him, the camera at his chest).
 // Dual wield: the cart is the weapon joint (spear channel: origin = the middle of its handle, +Z = the way it rolls; its
 // wheels hang 1 m under the handle, so a level cart with the handle at y 1.0 stands on the floor), the camera the second

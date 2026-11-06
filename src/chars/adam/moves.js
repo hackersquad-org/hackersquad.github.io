@@ -1,4 +1,4 @@
-// Edward — mic-stand + drone moveset (data only; format: src/hero/moves.js header). Mid-heavy: the stand reaches far and
+// Adam — mic-stand + drone moveset (data only; format: src/hero/moves.js header). Mid-heavy: the stand reaches far and
 // sweeps wide, the screams and the drone hit at range. All timings in 60 Hz sim frames.
 // N-string hit onsets 22–26 sf apart (onset spacing = cancel_k + tell_k+1 − tell_k): n1 11 → n2 35 → n3 59 → n4 83 → n5 107
 // → n6 131. Charges: C1 Feedback (a scream cone, 5.5 m) · C2 rising flick launcher · C3 wide 270° sweep · C4 Drone Strafe
